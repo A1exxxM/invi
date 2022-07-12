@@ -121,13 +121,63 @@ function animateHeader() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header */ "./src/js/header.js");
-/* harmony import */ var _titlebox__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./titlebox */ "./src/js/titlebox.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
+/* harmony import */ var _titlebox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./titlebox */ "./src/js/titlebox.js");
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
   Object(_header__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  Object(_titlebox__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  Object(_titlebox__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_slider__WEBPACK_IMPORTED_MODULE_1__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/slider.js":
+/*!**************************!*\
+  !*** ./src/js/slider.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function sliderScroll() {
+  const slides = document.querySelectorAll('.slider__slide'),
+        slidesField = document.querySelector('.slider__content'),
+        slidesWrapper = document.querySelector('.slider__content-inner'),
+        prevArrow = document.querySelector('#left'),
+        nextArrow = document.querySelector('#right'),
+        width = window.getComputedStyle(slidesField).width;
+  let offset = 0;
+  let slideCount = slides.length;
+  slidesWrapper.style.width = 100 * slideCount + '%';
+  slidesField.style.overflow = 'hidden';
+  slides.forEach(slide => {
+    slide.style.width = width;
+  });
+  prevArrow.addEventListener('click', () => {
+    if (offset == 0) {
+      offset = +width.replace(/\D/g, '') * (slideCount - 1);
+    } else {
+      offset -= +width.replace(/\D/g, '');
+    }
+
+    slidesWrapper.style.transform = `translateX(-${offset}px)`;
+  });
+  nextArrow.addEventListener('click', () => {
+    if (offset == +width.replace(/\D/g, '') * (slideCount - 1)) {
+      offset = 0;
+    } else {
+      offset += +width.replace(/\D/g, '');
+    }
+
+    slidesWrapper.style.transform = `translateX(-${offset}px)`;
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (sliderScroll);
 
 /***/ }),
 
