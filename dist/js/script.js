@@ -200,6 +200,13 @@ function animateBtn() {
   }
 
   setTimeout(btnClass, 1500);
+  const btn = document.querySelector('.titlebox__btn'),
+        sliderWrapper = document.querySelector('.slider__content-inner');
+  btn.addEventListener('click', () => {
+    sliderWrapper.scrollIntoView({
+      behavior: "smooth"
+    });
+  });
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (animateBtn);
