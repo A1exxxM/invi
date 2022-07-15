@@ -86,6 +86,28 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/accordion.js":
+/*!*****************************!*\
+  !*** ./src/js/accordion.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function showDescr() {
+  const itemAccordion = document.querySelectorAll('.accordion__item');
+  itemAccordion.forEach(item => {
+    item.firstChild.addEventListener('click', () => {
+      item.lastChild.classList.toggle('accordion__item-none');
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (showDescr);
+
+/***/ }),
+
 /***/ "./src/js/header.js":
 /*!**************************!*\
   !*** ./src/js/header.js ***!
@@ -114,17 +136,11 @@ function animateHeader() {
         links = document.querySelectorAll('.header__list-item');
 
   function scrollWeb(selector, scrollPoint) {
-    selector.addEventListener('mouseenter', () => {
-      links.forEach(item => {
-        item.style.color = '#000';
-      });
-      navbar.style.backgroundColor = '#fff';
+    selector.addEventListener('mouseenter', e => {
+      e.target.classList.add('changeColor');
     });
-    selector.addEventListener('mouseleave', () => {
-      links.forEach(item => {
-        item.style.color = '#fff';
-      });
-      navbar.style.backgroundColor = '#000';
+    selector.addEventListener('mouseleave', e => {
+      e.target.classList.remove('changeColor');
     });
     selector.addEventListener('click', () => {
       scrollPoint.scrollIntoView({
@@ -154,6 +170,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./header */ "./src/js/header.js");
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
 /* harmony import */ var _titlebox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./titlebox */ "./src/js/titlebox.js");
+/* harmony import */ var _products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./products */ "./src/js/products.js");
+/* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./accordion */ "./src/js/accordion.js");
+
+
 
 
 
@@ -161,7 +181,35 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_header__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_titlebox__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_slider__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  Object(_products__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/products.js":
+/*!****************************!*\
+  !*** ./src/js/products.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function changePrice() {
+  const productPrice = document.querySelectorAll('.products__item-price'),
+        productItem = document.querySelectorAll('.products__item');
+  productItem.forEach(item => {
+    item.addEventListener('mouseenter', e => {
+      e.target.lastChild.textContent = 'Подробнее';
+    });
+    item.addEventListener('mouseleave', e => {
+      e.target.lastChild.textContent = '2000 у.е';
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (changePrice);
 
 /***/ }),
 

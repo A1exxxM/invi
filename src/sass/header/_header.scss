@@ -15,13 +15,21 @@
         justify-content: space-around;
         align-items: center;
         &-item {
+            margin-top: 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             list-style-type: none;
             padding: 20px;
+            width: 150px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: #000;
             font-size: 25px;
             cursor: pointer;
             color: #fff;
             text-decoration: none;
-            transition: 0.6s all ease;
+            transition: 0.7s all ease;
         }
     }
 }

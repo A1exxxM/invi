@@ -6,6 +6,7 @@
 @import 'slider/slider';
 @import 'products/products';
 @import 'contacts/contacts';
+@import 'accordion/accordion';
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -19,4 +20,10 @@
 
 .visible {
     display: none;
+}
+
+.changeColor {
+    background-color: #fff;
+    color: #000;
+    transition: 0.7s all;
 }

@@ -14,17 +14,11 @@ function animateHeader() {
           contactsScrollPoint = document.querySelector('.contacts'),
           links = document.querySelectorAll('.header__list-item');
     function scrollWeb(selector, scrollPoint) {
-        selector.addEventListener('mouseenter', ()=> {
-            links.forEach(item =>{
-                item.style.color = '#000';
-            });
-            navbar.style.backgroundColor = '#fff';
+        selector.addEventListener('mouseenter', (e)=>{
+            e.target.classList.add('changeColor');
         });
-        selector.addEventListener('mouseleave', ()=> {
-            links.forEach(item =>{
-                item.style.color = '#fff';
-            });
-            navbar.style.backgroundColor = '#000';
+        selector.addEventListener('mouseleave', (e)=>{
+            e.target.classList.remove('changeColor');
         });
         selector.addEventListener('click', ()=>{
             scrollPoint.scrollIntoView({behavior: "smooth"});
