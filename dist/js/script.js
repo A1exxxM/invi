@@ -100,15 +100,18 @@ function showDescr() {
   itemAccordion.forEach(item => {
     item.firstChild.addEventListener('click', () => {
       item.lastChild.classList.toggle('accordion__item-visible');
+      item.firstChild.lastChild.classList.toggle('accordion__item-transformSquare');
     });
     item.lastChild.addEventListener('click', e => {
       if (e.target.classList.contains('accordion__item-visible')) {
         e.target.classList.toggle('accordion__item-visible');
+        item.firstChild.lastChild.classList.toggle('accordion__item-transformSquare');
       }
     });
     item.lastChild.firstChild.addEventListener('click', e => {
       if (e.target.parentNode.classList.contains('accordion__item-visible')) {
         e.target.parentNode.classList.toggle('accordion__item-visible');
+        item.firstChild.lastChild.classList.toggle('accordion__item-transformSquare');
       }
     });
     item.firstChild.addEventListener('mouseover', () => {
@@ -150,6 +153,8 @@ function animateHeader() {
   const photo = document.querySelector('#photo'),
         products = document.querySelector('#products'),
         contacts = document.querySelector('#contacts'),
+        faq = document.querySelector('#faq'),
+        faqScrollPoint = document.querySelector('.accordion__item'),
         photoScrollPoint = document.querySelector('.slider'),
         productsScrollPoint = document.querySelector('.products'),
         contactsScrollPoint = document.querySelector('.contacts'),
@@ -172,6 +177,7 @@ function animateHeader() {
   scrollWeb(photo, photoScrollPoint);
   scrollWeb(products, productsScrollPoint);
   scrollWeb(contacts, contactsScrollPoint);
+  scrollWeb(faq, faqScrollPoint);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (animateHeader);
@@ -192,6 +198,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _titlebox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./titlebox */ "./src/js/titlebox.js");
 /* harmony import */ var _products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./products */ "./src/js/products.js");
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./accordion */ "./src/js/accordion.js");
+/* harmony import */ var _pageup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pageup */ "./src/js/pageup.js");
+
 
 
 
@@ -203,7 +211,40 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_slider__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_products__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_pageup__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/pageup.js":
+/*!**************************!*\
+  !*** ./src/js/pageup.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function pageUp() {
+  const pageUpElem = document.querySelector('.pageup');
+  window.addEventListener('scroll', () => {
+    if (document.documentElement.scrollTop > 1600) {
+      pageUpElem.classList.add('pageup__active');
+    } else {
+      pageUpElem.classList.remove('pageup__active');
+    }
+  });
+  const header = document.querySelector('header');
+  pageUpElem.addEventListener('click', function () {
+    if (this.classList.contains('pageup__active')) {
+      header.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (pageUp);
 
 /***/ }),
 

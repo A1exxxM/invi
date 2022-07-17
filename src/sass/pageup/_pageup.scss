@@ -1,0 +1,42 @@
+.pageup {
+    position: fixed;
+    bottom: 200px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background-color: #000;
+    border: 2px solid #fff;
+    display: flex;
+    opacity: 0;
+    cursor: default;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.8s all ease;
+    span {
+        width: 35px;
+        border-radius: 20px;
+        height: 6px;
+        display: block;
+        background-color: #fff;
+        &:nth-child(1) {
+            transform: rotate(-45deg) translate(6px,3px);
+        }
+        &:nth-child(2) {
+            transform: rotate(45deg) translate(-6px,3px);;
+        }
+    }
+    &:hover {
+        background-color: #fff;
+        border: 2px solid #000;
+        transition: 0.8s all ease;
+        span {
+            transition: 0.8s all ease;
+            background-color: #000;
+        }
+    }
+    &__active {
+        opacity: 1;
+        cursor: pointer;
+    }
+}

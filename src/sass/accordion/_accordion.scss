@@ -75,5 +75,16 @@
             transition: 0.8s all ease;
             cursor: pointer;
         }
+        &-transformSquare {
+            span {
+                &:first-child {
+                    transform: translate(-1px,0px)  rotate(45deg);
+
+                }
+                &:last-child {
+                    transform: translate(1px,-2px) rotate(45deg);
+                }
+            }
+        }
     }
 }

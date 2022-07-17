@@ -9,6 +9,8 @@ function animateHeader() {
     const photo = document.querySelector('#photo'),
           products = document.querySelector('#products'),
           contacts = document.querySelector('#contacts'),
+          faq = document.querySelector('#faq'),
+          faqScrollPoint = document.querySelector('.accordion__item'),
           photoScrollPoint = document.querySelector('.slider'),
           productsScrollPoint = document.querySelector('.products'),
           contactsScrollPoint = document.querySelector('.contacts'),
@@ -27,6 +29,7 @@ function animateHeader() {
     scrollWeb(photo, photoScrollPoint);
     scrollWeb(products, productsScrollPoint);
     scrollWeb(contacts, contactsScrollPoint);
+    scrollWeb(faq, faqScrollPoint);
 }
 
 export default animateHeader;

@@ -4,15 +4,18 @@ function showDescr() {
     itemAccordion.forEach(item=> {
         item.firstChild.addEventListener('click', () => {
             item.lastChild.classList.toggle('accordion__item-visible');
+            item.firstChild.lastChild.classList.toggle('accordion__item-transformSquare');
         });
         item.lastChild.addEventListener('click', (e) => {
             if (e.target.classList.contains('accordion__item-visible')){
                 e.target.classList.toggle('accordion__item-visible');
+                item.firstChild.lastChild.classList.toggle('accordion__item-transformSquare');
             }
         });
         item.lastChild.firstChild.addEventListener('click', (e) => {
             if (e.target.parentNode.classList.contains('accordion__item-visible')){
                 e.target.parentNode.classList.toggle('accordion__item-visible');
+                item.firstChild.lastChild.classList.toggle('accordion__item-transformSquare');
             }
         });
         item.firstChild.addEventListener('mouseover', () => {
