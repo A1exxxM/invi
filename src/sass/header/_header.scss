@@ -1,19 +1,22 @@
 .header {
     height: 80px;
+    width: 100%;
     &__navbar {
-        width: 1140px;
+        width: 100%;
         height: 80px;
         background-color: #000;
-        border-bottom-left-radius: 40px;
-        border-bottom-right-radius: 40px;
         transition: 1s all ease;
         border: 3px solid #000;
         border-top: none;
+        position: fixed;
+        z-index: 10;
     }
     &__list {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+        width: 1200px;
+        margin: 0 auto;
         &-item {
             margin-top: 17px;
             display: flex;
@@ -30,6 +33,9 @@
             color: #fff;
             text-decoration: none;
             transition: 0.7s all ease;
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }

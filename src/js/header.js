@@ -11,10 +11,11 @@ function animateHeader() {
           contacts = document.querySelector('#contacts'),
           faq = document.querySelector('#faq'),
           faqScrollPoint = document.querySelector('.accordion__item'),
-          photoScrollPoint = document.querySelector('.slider'),
+          photoScrollPoint = document.querySelector('.photo'),
           productsScrollPoint = document.querySelector('.products'),
           contactsScrollPoint = document.querySelector('.contacts'),
-          links = document.querySelectorAll('.header__list-item');
+          about = document.querySelector('#about'),
+          aboutScrollPoint = document.querySelector('.about');
     function scrollWeb(selector, scrollPoint) {
         selector.addEventListener('mouseenter', (e)=>{
             e.target.classList.add('changeColor');
@@ -30,6 +31,7 @@ function animateHeader() {
     scrollWeb(products, productsScrollPoint);
     scrollWeb(contacts, contactsScrollPoint);
     scrollWeb(faq, faqScrollPoint);
+    scrollWeb(about, aboutScrollPoint);
 }
 
 export default animateHeader;

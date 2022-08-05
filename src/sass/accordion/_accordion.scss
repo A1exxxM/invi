@@ -1,11 +1,6 @@
 .accordion {
-    margin-top: 60px;
+    padding: 60px 0;
     min-height: 600px;
-    &__title {
-        font-size: 55px;
-        text-align: center;
-        margin-bottom: 60px;
-    }
     &__item {
         width: 85%;
         margin: 0 auto;
