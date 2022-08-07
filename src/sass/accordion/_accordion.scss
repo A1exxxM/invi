@@ -1,6 +1,9 @@
 .accordion {
-    padding: 60px 0;
+    padding: 100px 0;
     min-height: 600px;
+    &__subtitle {
+        margin-bottom: 90px;
+    }
     &__item {
         width: 85%;
         margin: 0 auto;
