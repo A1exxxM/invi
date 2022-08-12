@@ -242,6 +242,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  "use strict";
+
   Object(_header__WEBPACK_IMPORTED_MODULE_0__["default"])();
   Object(_titlebox__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_products__WEBPACK_IMPORTED_MODULE_2__["default"])();

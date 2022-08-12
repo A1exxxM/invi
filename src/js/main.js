@@ -4,6 +4,7 @@ import products from './products';
 import showDescr from "./accordion";
 import pageUp from "./pageup";
 document.addEventListener('DOMContentLoaded',() => {
+"use strict";
 animateHeader();
 animateBtn();
 products();

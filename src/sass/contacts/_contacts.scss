@@ -16,9 +16,11 @@
         width: 140px;
     }
     &__link {
-        width: 50px;
-        img {
-            width: 100%;
+        font-size: 55px;
+        height: 60px;
+        color: #fff;
+        &:hover {
+            color: #fff;
         }
     }
 }
