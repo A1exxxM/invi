@@ -48,7 +48,7 @@ function products() {
         item.addEventListener('mouseenter', ()=>{
             setSrc(data,srcPaths,item,"hoverSrc");
             setHoverInfo(data,itemPrices,item,"colection");
-            setHoverInfo(data,itemNames,item,"price");
+            setHoverInfo(data,itemNames,item,"tagline");
         });
         item.addEventListener('mouseleave', ()=>{
             setSrc(data,srcPaths,item,"mainSrc");

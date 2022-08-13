@@ -177,33 +177,45 @@ function showDescr() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 const data = [{
-  name: 'Модель 1',
+  name: 'Fool"s Desperation',
   price: 'Цена 1',
   hoverSrc: 'img/tshirt_hover.png',
   mainSrc: 'img/tshirt_main.png',
   tagline: 'Текст 1',
-  colection: 'Коллекция 1'
+  colection: 'The Ascendance of Darkness',
+  modalSrc: ['img/tshirt_hover.png', 'img/tshirt_main.png', 'img/tshirt_main.png'],
+  descr: 'Глупость - вершина человеческого общетва. В неведении легче жить и не замечать бесполезности бытия.Вот мой первый подарок - познай же красоту знаний, дарованную тьмой...',
+  composition: 'Кулирка : 92% <br> Лайкра : 8%'
 }, {
-  name: 'Модель 2',
+  name: 'Decepton Beauty',
   price: 'Цена 2',
   hoverSrc: 'img/tshirt_hover.png',
   mainSrc: 'img/tshirt_main.png',
   tagline: 'Текст 2',
-  colection: 'Коллекция 1'
+  colection: 'The Ascendance of Darkness',
+  modalSrc: ['img/tshirt_main.png', 'img/tshirt_main.png', 'img/tshirt_hover.png'],
+  descr: 'А вот и мой следущий подарок. Он избавит тебя от навязанных толпами невежд качеств. Во тьме ты сможешь узреть истинную красоту и уродство...',
+  composition: 'Кулирка : 92% <br> Лайкра : 8%'
 }, {
-  name: 'Модель 3',
+  name: 'Supressed Feelings',
   price: 'Цена 3',
   hoverSrc: 'img/tshirt_hover.png',
   mainSrc: 'img/tshirt_main.png',
   tagline: 'Текст 3',
-  colection: 'Коллекция 1'
+  colection: 'The Ascendance of Darkness',
+  modalSrc: ['img/tshirt_main.png', 'img/tshirt_main.png', 'img/tshirt_main.png'],
+  descr: 'Чтобы сохранить статус в обществе ты привык гасить переполняющия тебя чувства. Прими мой третий подарок и сделай выбор: выплеснуть весь океан этих эмоций или же навсегда от них отказаться. В любом случае тьма способна удовлетворить твой выбор...',
+  composition: 'Кулирка : 92% <br> Лайкра : 8%'
 }, {
-  name: 'Модель 4',
+  name: 'Unformed Darkness',
   price: 'Цена 4',
   hoverSrc: 'img/tshirt_hover.png',
   mainSrc: 'img/tshirt_main.png',
   tagline: 'Текст 4',
-  colection: 'Коллекция 1'
+  colection: 'The Ascendance of Darkness',
+  modalSrc: ['img/tshirt_hover.png', 'img/tshirt_hover.png', 'img/tshirt_hover.png'],
+  descr: 'Теперь ты готов к моему последнему подарку. Прими его и приблизься к совершенству. Но помни о главном - тьма может принимать любую форму. Теперь иди и погрузи ещё больше людей в нашу веру...',
+  composition: 'Кулирка : 92% <br> Лайкра : 8%'
 }];
 /* harmony default export */ __webpack_exports__["default"] = (data);
 
@@ -278,6 +290,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _products__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./products */ "./src/js/products.js");
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./accordion */ "./src/js/accordion.js");
 /* harmony import */ var _pageup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageup */ "./src/js/pageup.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modal */ "./src/js/modal.js");
+
 
 
 
@@ -291,7 +305,121 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_products__WEBPACK_IMPORTED_MODULE_2__["default"])();
   Object(_accordion__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_pageup__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_modal__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modal.js":
+/*!*************************!*\
+  !*** ./src/js/modal.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./src/js/data.js");
+
+
+function modal() {
+  const title = document.querySelector('.modal__title'),
+        descr = document.querySelector('.modal__descr'),
+        composition = document.querySelector('.modal__materials'),
+        price = document.querySelector('.modal__price'),
+        srcSlider = document.querySelectorAll('.modal__slider-wrapper img'),
+        srcTabs = document.querySelectorAll('.modal__tabs-item img'),
+        products = document.querySelectorAll('.products__item'),
+        header = document.querySelector('.header'),
+        modal = document.querySelector('.modal'),
+        modalBlock = document.querySelector('.modal__wrapper'),
+        modalClose = document.querySelector('.modal__close');
+
+  function setInfo(array, i, arg, selector) {
+    selector.textContent = array[i][`${arg}`];
+  }
+
+  function setSrc(selector, arg, array, numberOfElement) {
+    selector.forEach((item, i) => {
+      item.src = array[numberOfElement][`${arg}`][i];
+    });
+  }
+
+  products.forEach((product, i) => {
+    product.addEventListener('click', () => {
+      modal.classList.add('modal__active');
+      header.classList.add('header__hide');
+      document.body.style.overflow = "hidden";
+      setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "name", title);
+      setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "descr", descr);
+      setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "composition", composition);
+      setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "price", price);
+      setSrc(srcSlider, "modalSrc", _data__WEBPACK_IMPORTED_MODULE_0__["default"], i);
+      setSrc(srcTabs, "modalSrc", _data__WEBPACK_IMPORTED_MODULE_0__["default"], i);
+      setTimeout(function () {
+        modalBlock.classList.add('modal__wrapper-active');
+      }, 300);
+    });
+  });
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('modal__active');
+    header.classList.remove('header__hide');
+    document.body.style.overflow = "";
+    modalBlock.classList.remove('modal__wrapper-active');
+  });
+  modal.addEventListener('click', e => {
+    if (e.target == modal) {
+      modal.classList.remove('modal__active');
+      header.classList.remove('header__hide');
+      document.body.style.overflow = "";
+      modalBlock.classList.remove('modal__wrapper-active');
+    }
+  });
+  const images = document.querySelectorAll('.modal__slider-wrapper img'),
+        next = document.querySelector('.modal__slider-next'),
+        prev = document.querySelector('.modal__slider-prev'),
+        tabs = document.querySelectorAll('.modal__tabs-item');
+  let counter = 0;
+
+  function sliderInitial() {
+    images.forEach((item, i) => {
+      item.classList.add('imgHide');
+
+      if (counter == i) {
+        item.classList.remove('imgHide');
+      }
+    });
+  }
+
+  sliderInitial();
+  prev.addEventListener('click', () => {
+    if (counter == 0) {
+      counter = images.length - 1;
+    } else {
+      counter--;
+    }
+
+    sliderInitial();
+  });
+  next.addEventListener('click', () => {
+    if (counter == images.length - 1) {
+      counter = 0;
+    } else {
+      counter++;
+    }
+
+    sliderInitial();
+  });
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      counter = i;
+      sliderInitial();
+      return counter;
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (modal);
 
 /***/ }),
 
@@ -383,7 +511,7 @@ function products() {
     item.addEventListener('mouseenter', () => {
       setSrc(_data__WEBPACK_IMPORTED_MODULE_0__["default"], srcPaths, item, "hoverSrc");
       setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "colection");
-      setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "price");
+      setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "tagline");
     });
     item.addEventListener('mouseleave', () => {
       setSrc(_data__WEBPACK_IMPORTED_MODULE_0__["default"], srcPaths, item, "mainSrc");

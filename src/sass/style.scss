@@ -1,5 +1,6 @@
 @import 'libs/bootstrap-reboot.min';
 @import 'libs/animation';
+@import 'libs/variables';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
 @import 'header/header';
 @import 'titlebox/titlebox';
@@ -10,12 +11,16 @@
 @import 'pageup/pageup';
 @import 'blocks/blocks';
 @import 'about/about';
+@import 'modal/modal';
+
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
-
+body {
+    background-color: $colorOne;
+}
 .container {
     width: 1140px;
     margin: 0 auto;
@@ -26,15 +31,15 @@
 }
 
 .changeColor {
-    background-color: #fff;
-    color: #000;
+    background-color: $colorOne;
+    color: $colorTwo;
     transition: 0.7s all;
 }
 
 .changePlus {
-    background-color: #fff;
+    background-color: $colorOne;
 }
 
 .changePlusBlack {
-    background-color: #000;
+    background-color: $colorTwo;
 }

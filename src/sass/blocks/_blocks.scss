@@ -3,6 +3,7 @@
     text-align: center;
     line-height: 40px;
     margin-bottom: 0;
+    color: $colorTwo;
 }
 
 .subtitle {
@@ -11,6 +12,7 @@
     font-weight: 700;
     line-height: 30px;
     margin-top: 15px;
+    color: $colorTwo;
 }
 
 .divider {
@@ -18,7 +20,7 @@
     margin: 0 auto;
     height: 2.5px;
     width: 150px;
-    background-color: #000;
+    background-color: $colorTwo;
     margin-top: 20px;
 }
 

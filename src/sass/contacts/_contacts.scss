@@ -1,12 +1,12 @@
 .contacts {
     margin-top: 60px;
     height: 150px;
-    background-color: #000;
+    background-color: $colorTwo;
     padding: 20px;
     &__title {
         font-size: 25px;
         text-align: center;
-        color: #fff;
+        color: $colorOne;
     }
     &__wrapper {
         display: flex;
@@ -18,9 +18,9 @@
     &__link {
         font-size: 55px;
         height: 60px;
-        color: #fff;
+        color: $colorOne;
         &:hover {
-            color: #fff;
+            color: $colorOne;
         }
     }
 }

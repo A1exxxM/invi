@@ -4,17 +4,19 @@
     &__title {
         font-size: 55px;
         text-align: center;
+        color: $colorTwo;
     }
     &__subtitle {
         font-size: 55px;
         text-align: center;
+        color: $colorTwo;
     }
     &__btn {
         margin: 0 auto;
         margin-top: 130px;
         display: block;
-        background-color: #000;
-        color: #fff;
+        background-color: $colorTwo;
+        color: $colorOne;
         width: 250px;
         height: 75px;
         font-size: 25px;
@@ -24,10 +26,10 @@
         z-index: 1;
         &::before {
             content: "";
-            background-color: #fff;
+            background-color: $colorOne;
             border-radius: 4px;
             transition: 0.6s all ease;
-            border: 2px solid #000;
+            border: 2px solid $colorTwo;
             position: absolute;
             top: 0;
             left: 50%;
@@ -36,9 +38,9 @@
             opacity: 0;
         }
         &:hover { 
-            border: 2px solid #000;
+            border: 2px solid $colorTwo;
             transition: 0.6s all ease;
-            color: #000;
+            color: $colorTwo;
             &::before {
                 transition: 0.6s all ease;
                 left: 0;

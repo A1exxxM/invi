@@ -5,8 +5,8 @@
     width: 70px;
     height: 70px;
     border-radius: 100%;
-    background-color: #000;
-    border: 2px solid #fff;
+    background-color: $colorTwo;
+    border: 2px solid $colorOne;
     display: flex;
     opacity: 0;
     cursor: default;
@@ -18,7 +18,7 @@
         border-radius: 20px;
         height: 6px;
         display: block;
-        background-color: #fff;
+        background-color: $colorOne;
         &:nth-child(1) {
             transform: rotate(-45deg) translate(6px,3px);
         }
@@ -27,12 +27,12 @@
         }
     }
     &:hover {
-        background-color: #fff;
-        border: 2px solid #000;
+        background-color: $colorOne;
+        border: 2px solid $colorTwo;
         transition: 0.8s all ease;
         span {
             transition: 0.8s all ease;
-            background-color: #000;
+            background-color: $colorTwo;
         }
     }
     &__active {

@@ -5,8 +5,8 @@
   "main": "gulpfile.js",
   "homepage": "https://a1exxxm.github.io/invi/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1" ,
-    "deploy" : "gh-pages -d dist"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -41,6 +41,7 @@
   ],
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "bootstrap": "^5.2.0",
     "gh-pages": "^4.0.0"
   }
 }
