@@ -185,7 +185,7 @@ const data = [{
   colection: 'The Ascendance of Darkness',
   modalSrc: ['img/tshirt_hover.png', 'img/tshirt_main.png', 'img/tshirt_main.png'],
   descr: 'Глупость - вершина человеческого общетва. В неведении легче жить и не замечать бесполезности бытия.Вот мой первый подарок - познай же красоту знаний, дарованную тьмой...',
-  composition: 'Кулирка : 92% <br> Лайкра : 8%'
+  composition: 'Кулирка : 92% Лайкра : 8%'
 }, {
   name: 'Decepton Beauty',
   price: 'Цена 2',
@@ -195,7 +195,7 @@ const data = [{
   colection: 'The Ascendance of Darkness',
   modalSrc: ['img/tshirt_main.png', 'img/tshirt_main.png', 'img/tshirt_hover.png'],
   descr: 'А вот и мой следущий подарок. Он избавит тебя от навязанных толпами невежд качеств. Во тьме ты сможешь узреть истинную красоту и уродство...',
-  composition: 'Кулирка : 92% <br> Лайкра : 8%'
+  composition: 'Кулирка : 92% Лайкра : 8%'
 }, {
   name: 'Supressed Feelings',
   price: 'Цена 3',
@@ -205,7 +205,7 @@ const data = [{
   colection: 'The Ascendance of Darkness',
   modalSrc: ['img/tshirt_main.png', 'img/tshirt_main.png', 'img/tshirt_main.png'],
   descr: 'Чтобы сохранить статус в обществе ты привык гасить переполняющия тебя чувства. Прими мой третий подарок и сделай выбор: выплеснуть весь океан этих эмоций или же навсегда от них отказаться. В любом случае тьма способна удовлетворить твой выбор...',
-  composition: 'Кулирка : 92% <br> Лайкра : 8%'
+  composition: 'Кулирка : 92% Лайкра : 8%'
 }, {
   name: 'Unformed Darkness',
   price: 'Цена 4',
@@ -215,7 +215,7 @@ const data = [{
   colection: 'The Ascendance of Darkness',
   modalSrc: ['img/tshirt_hover.png', 'img/tshirt_hover.png', 'img/tshirt_hover.png'],
   descr: 'Теперь ты готов к моему последнему подарку. Прими его и приблизься к совершенству. Но помни о главном - тьма может принимать любую форму. Теперь иди и погрузи ещё больше людей в нашу веру...',
-  composition: 'Кулирка : 92% <br> Лайкра : 8%'
+  composition: 'Кулирка : 92% Лайкра : 8%'
 }];
 /* harmony default export */ __webpack_exports__["default"] = (data);
 
@@ -324,7 +324,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function modal() {
   const title = document.querySelector('.modal__title'),
-        descr = document.querySelector('.modal__descr'),
+        descr = document.querySelector('.modal__descr span'),
         composition = document.querySelector('.modal__materials'),
         price = document.querySelector('.modal__price'),
         srcSlider = document.querySelectorAll('.modal__slider-wrapper img'),

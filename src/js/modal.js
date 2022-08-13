@@ -1,7 +1,7 @@
 import data from "./data";
 function modal() {
     const title = document.querySelector('.modal__title'),
-          descr = document.querySelector('.modal__descr'),
+          descr = document.querySelector('.modal__descr span'),
           composition = document.querySelector('.modal__materials'),
           price = document.querySelector('.modal__price'),
           srcSlider = document.querySelectorAll('.modal__slider-wrapper img'),

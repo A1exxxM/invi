@@ -8,7 +8,7 @@ const data = [
         colection: 'The Ascendance of Darkness',
         modalSrc: ['img/tshirt_hover.png','img/tshirt_main.png','img/tshirt_main.png'],
         descr: 'Глупость - вершина человеческого общетва. В неведении легче жить и не замечать бесполезности бытия.Вот мой первый подарок - познай же красоту знаний, дарованную тьмой...',
-        composition: 'Кулирка : 92% <br> Лайкра : 8%'
+        composition: 'Кулирка : 92% Лайкра : 8%'
     },
     {
         name: 'Decepton Beauty',
@@ -19,7 +19,7 @@ const data = [
         colection: 'The Ascendance of Darkness',
         modalSrc: ['img/tshirt_main.png','img/tshirt_main.png','img/tshirt_hover.png'],
         descr: 'А вот и мой следущий подарок. Он избавит тебя от навязанных толпами невежд качеств. Во тьме ты сможешь узреть истинную красоту и уродство...',
-        composition: 'Кулирка : 92% <br> Лайкра : 8%'
+        composition: 'Кулирка : 92% Лайкра : 8%'
     },
     {
         name: 'Supressed Feelings',
@@ -30,7 +30,7 @@ const data = [
         colection: 'The Ascendance of Darkness',
         modalSrc: ['img/tshirt_main.png','img/tshirt_main.png','img/tshirt_main.png'],
         descr: 'Чтобы сохранить статус в обществе ты привык гасить переполняющия тебя чувства. Прими мой третий подарок и сделай выбор: выплеснуть весь океан этих эмоций или же навсегда от них отказаться. В любом случае тьма способна удовлетворить твой выбор...',
-        composition: 'Кулирка : 92% <br> Лайкра : 8%'
+        composition: 'Кулирка : 92% Лайкра : 8%'
     },
     {
         name: 'Unformed Darkness',
@@ -41,7 +41,7 @@ const data = [
         colection: 'The Ascendance of Darkness',
         modalSrc: ['img/tshirt_hover.png','img/tshirt_hover.png','img/tshirt_hover.png'],
         descr: 'Теперь ты готов к моему последнему подарку. Прими его и приблизься к совершенству. Но помни о главном - тьма может принимать любую форму. Теперь иди и погрузи ещё больше людей в нашу веру...',
-        composition: 'Кулирка : 92% <br> Лайкра : 8%'
+        composition: 'Кулирка : 92% Лайкра : 8%'
     }
 ];
 
