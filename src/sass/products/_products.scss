@@ -4,18 +4,26 @@
     &__wrapper {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         align-items: center;
         margin-top: 100px;
+        padding: 0 80px;
+        &:nth-child(1) {
+            margin-bottom: 40px;
+        }
     }
     &__item {
-        width: 350px;
+        width: 400px;
         cursor: pointer;
+        &:nth-child(1),&:nth-child(2) {
+            margin-bottom: 60px;
+        }
         &-photo {
             width: 100%;
             transition: 0.6s all;
             img {
                 width: 100%;
-                transition: 0.8s all;
+                transition: 0.6s all;
                 opacity: 1;
             }
         }
@@ -24,7 +32,7 @@
             font-size: 18px;
             margin-top: 15px;
             font-weight: 600;
-            transition: 0.8s all;
+            transition: 0.6s all;
         }
     }
 }

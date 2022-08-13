@@ -167,6 +167,48 @@ function showDescr() {
 
 /***/ }),
 
+/***/ "./src/js/data.js":
+/*!************************!*\
+  !*** ./src/js/data.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const data = [{
+  name: 'Модель 1',
+  price: 'Цена 1',
+  hoverSrc: 'img/tshirt_hover.png',
+  mainSrc: 'img/tshirt_main.png',
+  tagline: 'Текст 1',
+  colection: 'Коллекция 1'
+}, {
+  name: 'Модель 2',
+  price: 'Цена 2',
+  hoverSrc: 'img/tshirt_hover.png',
+  mainSrc: 'img/tshirt_main.png',
+  tagline: 'Текст 2',
+  colection: 'Коллекция 1'
+}, {
+  name: 'Модель 3',
+  price: 'Цена 3',
+  hoverSrc: 'img/tshirt_hover.png',
+  mainSrc: 'img/tshirt_main.png',
+  tagline: 'Текст 3',
+  colection: 'Коллекция 1'
+}, {
+  name: 'Модель 4',
+  price: 'Цена 4',
+  hoverSrc: 'img/tshirt_hover.png',
+  mainSrc: 'img/tshirt_main.png',
+  tagline: 'Текст 4',
+  colection: 'Коллекция 1'
+}];
+/* harmony default export */ __webpack_exports__["default"] = (data);
+
+/***/ }),
+
 /***/ "./src/js/header.js":
 /*!**************************!*\
   !*** ./src/js/header.js ***!
@@ -294,62 +336,59 @@ function pageUp() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./src/js/data.js");
+
+
 function products() {
-  const name = ['Модель 1', 'Модель 2', 'Модель 3'],
-        price = ['Цена 1', 'Цена 2', 'Цена 3'],
-        src = ['../img/tshirt_hover.png', '../img/tshirt_hover.png', '../img/tshirt_hover.png'],
-        srcMain = ['../img/tshirt_main.png', '../img/tshirt_main.png', '../img/tshirt_main.png'],
-        itemPricesChange = ['Текст 1', 'Текст 2', 'Текст 3'],
-        itemNamesChange = ['Коллекция 1', 'Коллекция 1', 'Коллекция 1'],
-        items = document.querySelectorAll('.products__item'),
+  const items = document.querySelectorAll('.products__item'),
         itemPrices = document.querySelectorAll('.products__item-price'),
         itemNames = document.querySelectorAll('.products__item-name'),
         srcPaths = document.querySelectorAll('.products__item-photo img');
 
-  function setInfo(array, selector, element) {
+  function setInfo(array, selector, element, arg) {
     selector.forEach((item, i) => {
       if (element.contains(item)) {
-        item.textContent = array[i];
+        item.textContent = array[i][`${arg}`];
       }
     });
   }
 
-  function setHoverInfo(array, selector, element) {
+  function setHoverInfo(array, selector, element, arg) {
     selector.forEach((item, i) => {
       if (element.contains(item)) {
         item.style.opacity = '0';
         setTimeout(function () {
-          item.textContent = array[i];
+          item.textContent = array[i][`${arg}`];
           item.style.opacity = '1';
-        }, 300);
+        }, 400);
       }
     });
   }
 
-  function setSrc(array, selector, element) {
+  function setSrc(array, selector, element, arg) {
     selector.forEach((item, i) => {
       if (element.contains(item)) {
         item.style.opacity = '0';
         setTimeout(function () {
-          item.src = array[i];
+          item.src = array[i][`${arg}`];
           item.style.opacity = '1';
-        }, 300);
+        }, 400);
       }
     });
   }
 
   items.forEach(item => {
-    setInfo(name, itemNames, item);
-    setInfo(price, itemPrices, item);
-    item.addEventListener('mouseover', () => {
-      setSrc(src, srcPaths, item);
-      setHoverInfo(itemPricesChange, itemPrices, item);
-      setHoverInfo(itemNamesChange, itemNames, item);
+    setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "name");
+    setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "price");
+    item.addEventListener('mouseenter', () => {
+      setSrc(_data__WEBPACK_IMPORTED_MODULE_0__["default"], srcPaths, item, "hoverSrc");
+      setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "colection");
+      setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "price");
     });
-    item.addEventListener('mouseout', () => {
-      setSrc(srcMain, srcPaths, item);
-      setHoverInfo(name, itemNames, item);
-      setHoverInfo(price, itemPrices, item);
+    item.addEventListener('mouseleave', () => {
+      setSrc(_data__WEBPACK_IMPORTED_MODULE_0__["default"], srcPaths, item, "mainSrc");
+      setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "name");
+      setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "price");
     });
   });
 }
