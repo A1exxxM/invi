@@ -36,4 +36,19 @@
             color: $colorTwo;
         }
     }
+    &__collection {
+        margin-top: 80px;
+        text-align: center;
+        font-size: 25px;
+        span {
+            background-color: #000;
+            border-radius: 5px;
+            color: $colorOne;
+        }
+        transition: 3s all;
+        opacity: 0;
+        &-active {
+            opacity: 1;
+        }
+    }
 }

@@ -4,7 +4,14 @@ function products() {
     const items = document.querySelectorAll('.products__item'),
           itemPrices = document.querySelectorAll('.products__item-price'),
           itemNames = document.querySelectorAll('.products__item-name'),
-          srcPaths = document.querySelectorAll('.products__item-photo img');
+          srcPaths = document.querySelectorAll('.products__item-photo img'),
+          collectionInfo = document.querySelector('.products__collection');
+
+    window.addEventListener('scroll', ()=> {
+        if (window.scrollY >= 700) {
+            collectionInfo.classList.add('products__collection-active');
+        }
+    });
     
 
     function setInfo(array, selector, element, arg) {

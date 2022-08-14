@@ -12,6 +12,7 @@
 @import 'blocks/blocks';
 @import 'about/about';
 @import 'modal/modal';
+@import 'images/images';
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -31,6 +32,12 @@ body {
 }
 
 .changeColor {
+    background-color: $colorOne;
+    color: $colorTwo;
+    transition: 0.7s all;
+}
+
+.changeScrollColor {
     background-color: $colorOne;
     color: $colorTwo;
     transition: 0.7s all;

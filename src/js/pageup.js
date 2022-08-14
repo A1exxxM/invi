@@ -1,7 +1,7 @@
 function pageUp() {
     const pageUpElem = document.querySelector('.pageup');
     window.addEventListener('scroll', () => {
-        if(document.documentElement.scrollTop > 1600){
+        if(document.documentElement.scrollTop > 3000){
             pageUpElem.classList.add('pageup__active');
         } else {
             pageUpElem.classList.remove('pageup__active');

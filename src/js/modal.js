@@ -58,26 +58,6 @@ function modal() {
         }
     });
     
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     const images = document.querySelectorAll('.modal__slider-wrapper img'),
           next = document.querySelector('.modal__slider-next'),
           prev = document.querySelector('.modal__slider-prev'),

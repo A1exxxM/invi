@@ -4,6 +4,7 @@ import products from './products';
 import showDescr from "./accordion";
 import pageUp from "./pageup";
 import modal from "./modal";
+import images from "./images";
 document.addEventListener('DOMContentLoaded',() => {
 "use strict";
 animateHeader();
@@ -12,4 +13,5 @@ products();
 showDescr();
 pageUp();
 modal();
+images();
 });
