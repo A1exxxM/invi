@@ -242,9 +242,9 @@ function animateHeader() {
   setTimeout(headerClass, 1500);
   const photo = document.querySelector('#photo'),
         products = document.querySelector('#products'),
-        contacts = document.querySelector('#contacts'),
-        faq = document.querySelector('#faq'),
-        faqScrollPoint = document.querySelector('.accordion__item'),
+        //   contacts = document.querySelector('#contacts'),
+  faq = document.querySelector('#faq'),
+        faqScrollPoint = document.querySelector('.accordion'),
         photoScrollPoint = document.querySelector('.photo'),
         productsScrollPoint = document.querySelector('.products'),
         contactsScrollPoint = document.querySelector('.contacts'),
@@ -252,12 +252,12 @@ function animateHeader() {
         aboutScrollPoint = document.querySelector('.about');
 
   function scrollWeb(selector, scrollPoint) {
-    selector.addEventListener('mouseenter', e => {
-      e.target.classList.add('changeColor');
-    });
-    selector.addEventListener('mouseleave', e => {
-      e.target.classList.remove('changeColor');
-    });
+    // selector.addEventListener('mouseenter', (e)=>{
+    //     e.target.classList.add('changeColor');
+    // });
+    // selector.addEventListener('mouseleave', (e)=>{
+    //     e.target.classList.remove('changeColor');
+    // });
     selector.addEventListener('click', () => {
       scrollPoint.scrollIntoView({
         behavior: "smooth"
@@ -266,13 +266,118 @@ function animateHeader() {
   }
 
   scrollWeb(photo, photoScrollPoint);
-  scrollWeb(products, productsScrollPoint);
-  scrollWeb(contacts, contactsScrollPoint);
+  scrollWeb(products, productsScrollPoint); // scrollWeb(contacts, contactsScrollPoint);
+
   scrollWeb(faq, faqScrollPoint);
   scrollWeb(about, aboutScrollPoint);
+
+  function showNavElemActive(firstPoint, secondPoint, navItem) {
+    const a = firstPoint.getBoundingClientRect().top - 1,
+          b = secondPoint.getBoundingClientRect().top;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > a && window.scrollY < b) {
+        navItem.classList.add('changeScrollColor');
+      } else {
+        navItem.classList.remove('changeScrollColor');
+      }
+    });
+  }
+
+  showNavElemActive(productsScrollPoint, photoScrollPoint, products);
+  showNavElemActive(photoScrollPoint, aboutScrollPoint, photo);
+  showNavElemActive(aboutScrollPoint, faqScrollPoint, about);
+  showNavElemActive(faqScrollPoint, contactsScrollPoint, faq);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (animateHeader);
+
+/***/ }),
+
+/***/ "./src/js/images.js":
+/*!**************************!*\
+  !*** ./src/js/images.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function images() {
+  const photos = document.querySelectorAll('.photo__item img'),
+        wrapper = document.querySelector('.images__wrapper'),
+        prev = document.querySelector('.images__wrapper-prev'),
+        next = document.querySelector('.images__wrapper-next'),
+        images = document.querySelector('.images'),
+        header = document.querySelector('.header');
+  let srcArray = [];
+
+  for (let i = 0; i < photos.length; i++) {
+    srcArray.push(photos[i].src.replace('http://localhost:3000/', ''));
+  }
+
+  let items = [];
+
+  for (let i = 0; i < srcArray.length; i++) {
+    let item = document.createElement('img');
+    item.src = srcArray[i];
+    item.alt = `number of photo: ${i}`;
+    items.push(item);
+    wrapper.append(item);
+  }
+
+  let counter = 0;
+
+  function sliderInitial() {
+    items.forEach((item, i) => {
+      item.classList.add('imgHide');
+
+      if (counter == i) {
+        item.classList.remove('imgHide');
+      }
+    });
+  }
+
+  prev.addEventListener('click', () => {
+    if (counter == 0) {
+      counter = items.length - 1;
+    } else {
+      counter--;
+    }
+
+    sliderInitial();
+  });
+  next.addEventListener('click', () => {
+    if (counter == items.length - 1) {
+      counter = 0;
+    } else {
+      counter++;
+    }
+
+    sliderInitial();
+  });
+  photos.forEach((photo, i) => {
+    photo.addEventListener('click', () => {
+      counter = i;
+      sliderInitial();
+      images.classList.add('images__active');
+      header.classList.add('header__hide');
+      document.body.style.overflow = "hidden";
+      setTimeout(function () {
+        wrapper.classList.add('images__wrapper-active');
+      }, 400);
+    });
+  });
+  images.addEventListener('click', e => {
+    if (e.target == images) {
+      images.classList.remove('images__active');
+      header.classList.remove('header__hide');
+      document.body.style.overflow = "";
+      wrapper.classList.remove('images__wrapper-active');
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (images);
 
 /***/ }),
 
@@ -291,6 +396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./accordion */ "./src/js/accordion.js");
 /* harmony import */ var _pageup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageup */ "./src/js/pageup.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modal */ "./src/js/modal.js");
+/* harmony import */ var _images__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images */ "./src/js/images.js");
+
 
 
 
@@ -306,6 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_accordion__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_pageup__WEBPACK_IMPORTED_MODULE_4__["default"])();
   Object(_modal__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_images__WEBPACK_IMPORTED_MODULE_6__["default"])();
 });
 
 /***/ }),
@@ -435,7 +543,7 @@ __webpack_require__.r(__webpack_exports__);
 function pageUp() {
   const pageUpElem = document.querySelector('.pageup');
   window.addEventListener('scroll', () => {
-    if (document.documentElement.scrollTop > 1600) {
+    if (document.documentElement.scrollTop > 3000) {
       pageUpElem.classList.add('pageup__active');
     } else {
       pageUpElem.classList.remove('pageup__active');
@@ -471,7 +579,13 @@ function products() {
   const items = document.querySelectorAll('.products__item'),
         itemPrices = document.querySelectorAll('.products__item-price'),
         itemNames = document.querySelectorAll('.products__item-name'),
-        srcPaths = document.querySelectorAll('.products__item-photo img');
+        srcPaths = document.querySelectorAll('.products__item-photo img'),
+        collectionInfo = document.querySelector('.products__collection');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= 700) {
+      collectionInfo.classList.add('products__collection-active');
+    }
+  });
 
   function setInfo(array, selector, element, arg) {
     selector.forEach((item, i) => {
