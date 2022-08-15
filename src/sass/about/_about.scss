@@ -1,4 +1,50 @@
 .about {
-    min-height: 1000px;
+    min-height: 700px;
     padding: 100px 0;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        margin-top: 60px;
+    }
+    &__item {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 550px;
+        &-icon {
+            text-align: center;
+            font-size: 60px;
+        }
+        &-title {
+            text-align: center;
+            font-size: 25px;
+            transition: 0.8s all;
+            opacity: 0;
+            &_active {
+                opacity: 1;
+            }
+            span {
+                background-color: $colorTwo;
+                font-size: 20px;
+                color: $colorOne;
+                border-radius: 6px;
+            }
+        }
+        &-descr {
+            text-align: center;
+            font-size: 18px;
+            transition: 0.8s all;
+            opacity: 0;
+            &_active {
+                opacity: 1;
+            }
+        }
+        &-btn {
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+    }
 }

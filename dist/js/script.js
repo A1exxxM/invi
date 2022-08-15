@@ -86,6 +86,42 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/about.js":
+/*!*************************!*\
+  !*** ./src/js/about.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function about() {
+  const titles = document.querySelectorAll('.about__item-title'),
+        descrs = document.querySelectorAll('.about__item-descr'),
+        buttons = document.querySelectorAll('.about__item-btn');
+
+  function showElem(array, activeClass, numberOfElem) {
+    array.forEach((item, i) => {
+      item.classList.remove(activeClass);
+
+      if (i == numberOfElem) {
+        item.classList.add(activeClass);
+      }
+    });
+  }
+
+  buttons.forEach((button, i) => {
+    button.addEventListener('click', () => {
+      showElem(titles, 'about__item-title_active', i);
+      showElem(descrs, 'about__item-descr_active', i);
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (about);
+
+/***/ }),
+
 /***/ "./src/js/accordion.js":
 /*!*****************************!*\
   !*** ./src/js/accordion.js ***!
@@ -302,6 +338,9 @@ function animateHeader() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
+
+
 function images() {
   const photos = document.querySelectorAll('.photo__item img'),
         wrapper = document.querySelector('.images__wrapper'),
@@ -359,20 +398,12 @@ function images() {
     photo.addEventListener('click', () => {
       counter = i;
       sliderInitial();
-      images.classList.add('images__active');
-      header.classList.add('header__hide');
-      document.body.style.overflow = "hidden";
-      setTimeout(function () {
-        wrapper.classList.add('images__wrapper-active');
-      }, 400);
+      Object(_slider__WEBPACK_IMPORTED_MODULE_0__["modalTogal"])(images, wrapper, header, 'images__active', 'images__wrapper-active');
     });
   });
   images.addEventListener('click', e => {
     if (e.target == images) {
-      images.classList.remove('images__active');
-      header.classList.remove('header__hide');
-      document.body.style.overflow = "";
-      wrapper.classList.remove('images__wrapper-active');
+      Object(_slider__WEBPACK_IMPORTED_MODULE_0__["modalTogal"])(images, wrapper, header, 'images__active', 'images__wrapper-active');
     }
   });
 }
@@ -397,6 +428,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pageup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageup */ "./src/js/pageup.js");
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modal */ "./src/js/modal.js");
 /* harmony import */ var _images__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images */ "./src/js/images.js");
+/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./about */ "./src/js/about.js");
+
 
 
 
@@ -414,6 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Object(_pageup__WEBPACK_IMPORTED_MODULE_4__["default"])();
   Object(_modal__WEBPACK_IMPORTED_MODULE_5__["default"])();
   Object(_images__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  Object(_about__WEBPACK_IMPORTED_MODULE_7__["default"])();
 });
 
 /***/ }),
@@ -428,6 +462,8 @@ document.addEventListener('DOMContentLoaded', () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ "./src/js/data.js");
+/* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
+
 
 
 function modal() {
@@ -455,32 +491,21 @@ function modal() {
 
   products.forEach((product, i) => {
     product.addEventListener('click', () => {
-      modal.classList.add('modal__active');
-      header.classList.add('header__hide');
-      document.body.style.overflow = "hidden";
       setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "name", title);
       setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "descr", descr);
       setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "composition", composition);
       setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "price", price);
       setSrc(srcSlider, "modalSrc", _data__WEBPACK_IMPORTED_MODULE_0__["default"], i);
       setSrc(srcTabs, "modalSrc", _data__WEBPACK_IMPORTED_MODULE_0__["default"], i);
-      setTimeout(function () {
-        modalBlock.classList.add('modal__wrapper-active');
-      }, 300);
+      Object(_slider__WEBPACK_IMPORTED_MODULE_1__["modalTogal"])(modal, modalBlock, header, 'modal__active', 'modal__wrapper-active');
     });
   });
   modalClose.addEventListener('click', () => {
-    modal.classList.remove('modal__active');
-    header.classList.remove('header__hide');
-    document.body.style.overflow = "";
-    modalBlock.classList.remove('modal__wrapper-active');
+    Object(_slider__WEBPACK_IMPORTED_MODULE_1__["modalTogal"])(modal, modalBlock, header, 'modal__active', 'modal__wrapper-active');
   });
   modal.addEventListener('click', e => {
     if (e.target == modal) {
-      modal.classList.remove('modal__active');
-      header.classList.remove('header__hide');
-      document.body.style.overflow = "";
-      modalBlock.classList.remove('modal__wrapper-active');
+      Object(_slider__WEBPACK_IMPORTED_MODULE_1__["modalTogal"])(modal, modalBlock, header, 'modal__active', 'modal__wrapper-active');
     }
   });
   const images = document.querySelectorAll('.modal__slider-wrapper img'),
@@ -636,6 +661,57 @@ function products() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (products);
+
+/***/ }),
+
+/***/ "./src/js/slider.js":
+/*!**************************!*\
+  !*** ./src/js/slider.js ***!
+  \**************************/
+/*! exports provided: modalTogal, counterIncrease, counterDecrease */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modalTogal", function() { return modalTogal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "counterIncrease", function() { return counterIncrease; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "counterDecrease", function() { return counterDecrease; });
+function counterIncrease(array) {
+  if (counter == array.length - 1) {
+    counter = 0;
+  } else {
+    counter++;
+  }
+
+  return counter;
+}
+
+const counterDecrease = array => {
+  if (counter == 0) {
+    counter = array.length - 1;
+  } else {
+    counter--;
+  }
+
+  return counter;
+};
+
+function modalTogal(modal, modalWrapper, header, activeClass, wrapperActiveClass) {
+  modal.classList.toggle(activeClass);
+  header.classList.toggle('header__hide');
+
+  if (document.body.style.overflow == "hidden") {
+    document.body.style.overflow = "";
+    modalWrapper.classList.toggle(wrapperActiveClass);
+  } else {
+    document.body.style.overflow = "hidden";
+    setTimeout(function () {
+      modalWrapper.classList.toggle(wrapperActiveClass);
+    }, 300);
+  }
+}
+
+
 
 /***/ }),
 

@@ -1,3 +1,4 @@
+import {modalTogal} from './slider';
 function images() {
     const photos = document.querySelectorAll('.photo__item img'),
           wrapper = document.querySelector('.images__wrapper'),
@@ -9,7 +10,7 @@ function images() {
     for (let i = 0; i < photos.length; i++) {
         srcArray.push(photos[i].src.replace('http://localhost:3000/', ''));
     }
-    let items =[]
+    let items =[];
     for (let i = 0; i < srcArray.length; i++) {
         let item = document.createElement('img');
         item.src = srcArray[i];
@@ -54,20 +55,12 @@ function images() {
         photo.addEventListener('click', ()=>{
             counter = i;
             sliderInitial();
-            images.classList.add('images__active');
-            header.classList.add('header__hide');
-            document.body.style.overflow = "hidden";
-            setTimeout(function(){
-                wrapper.classList.add('images__wrapper-active');
-            },400);
+            modalTogal(images,wrapper,header,'images__active','images__wrapper-active');
         });
     });
     images.addEventListener('click', (e)=>{
         if (e.target == images) {
-            images.classList.remove('images__active');
-            header.classList.remove('header__hide');
-            document.body.style.overflow = "";
-            wrapper.classList.remove('images__wrapper-active');
+            modalTogal(images,wrapper,header,'images__active','images__wrapper-active');
         }
     });
 

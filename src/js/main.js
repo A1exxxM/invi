@@ -5,6 +5,7 @@ import showDescr from "./accordion";
 import pageUp from "./pageup";
 import modal from "./modal";
 import images from "./images";
+import about from "./about";
 document.addEventListener('DOMContentLoaded',() => {
 "use strict";
 animateHeader();
@@ -14,4 +15,5 @@ showDescr();
 pageUp();
 modal();
 images();
+about();
 });

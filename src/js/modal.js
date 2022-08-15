@@ -1,4 +1,5 @@
 import data from "./data";
+import {modalTogal} from './slider';
 function modal() {
     const title = document.querySelector('.modal__title'),
           descr = document.querySelector('.modal__descr span'),
@@ -27,34 +28,23 @@ function modal() {
 
     products.forEach((product,i) => {
         product.addEventListener('click', ()=> {
-            modal.classList.add('modal__active');
-            header.classList.add('header__hide');
-            document.body.style.overflow = "hidden";
             setInfo(data,i,"name",title);
             setInfo(data,i,"descr",descr);
             setInfo(data,i,"composition",composition);
             setInfo(data,i,"price",price);
             setSrc(srcSlider,"modalSrc",data,i);
             setSrc(srcTabs,"modalSrc",data,i);
-            setTimeout(function(){
-                modalBlock.classList.add('modal__wrapper-active');
-            },300);
+            modalTogal(modal,modalBlock,header,'modal__active','modal__wrapper-active');
         });
     });
 
     modalClose.addEventListener('click', ()=>{
-        modal.classList.remove('modal__active');
-        header.classList.remove('header__hide');
-        document.body.style.overflow = "";
-        modalBlock.classList.remove('modal__wrapper-active');
+        modalTogal(modal,modalBlock,header,'modal__active','modal__wrapper-active');
     });
 
     modal.addEventListener('click', (e)=>{
         if (e.target == modal) {
-            modal.classList.remove('modal__active');
-            header.classList.remove('header__hide');
-            document.body.style.overflow = "";
-            modalBlock.classList.remove('modal__wrapper-active');
+            modalTogal(modal,modalBlock,header,'modal__active','modal__wrapper-active');
         }
     });
     

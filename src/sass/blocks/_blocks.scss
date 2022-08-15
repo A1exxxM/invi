@@ -31,3 +31,98 @@
 .tshirt__show {
     opacity: 1;
 }
+
+.arrow {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: $colorTwo;
+    border: 2px solid $colorTwo;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 5;
+    transition: 0.6s all;
+    span {
+        display: block;
+        height: 2px;
+        width: 25px;
+        background-color: $colorOne;
+        transition: 0.6s all;
+        &:nth-child(1), &:nth-child(3) {
+            margin-bottom: 6px;
+        }
+        &:nth-child(2), &:nth-child(4) {
+            margin-top: 6px;
+        }
+    }
+    &:hover {
+        background-color: $colorOne;
+        span {
+            background-color: $colorTwo;
+        }
+    }
+    &__next {
+        span {
+            &:nth-child(1) {
+                transform: rotate(36deg);
+            }
+            &:nth-child(2) {
+                transform: rotate(-36deg);
+            }
+        }
+    }
+    &__prev {
+        span {
+            &:nth-child(1) {
+                transform: rotate(-36deg);
+            }
+            &:nth-child(2) {
+                transform: rotate(36deg);
+            }
+        }
+    }
+}
+
+.button {
+    display: block;
+    background-color: $colorTwo;
+    width: 250px;
+    height: 75px;
+    font-size: 25px;
+    border-radius: 4px;
+    position: relative;
+    transition: 0.6s all ease;
+    z-index: 1;
+    color: $colorOne;
+    &::before {
+        content: "";
+        background-color: $colorOne;
+        border-radius: 4px;
+        transition: 0.6s all ease;
+        border: 2px solid $colorTwo;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        opacity: 0;
+    }
+    &:hover { 
+        border: 2px solid $colorTwo;
+        transition: 0.6s all ease;
+        color: $colorTwo;
+        &::before {
+            transition: 0.6s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+            z-index: -1;
+        }
+    }
+}
