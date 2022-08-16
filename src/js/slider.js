@@ -21,8 +21,6 @@ const counterDecrease = (array) => {
 function modalTogal(modal,modalWrapper,header,activeClass,wrapperActiveClass) {
     modal.classList.toggle(activeClass);
     header.classList.toggle('header__hide');
-    const container = document.querySelector('.container');
-    if (container.clientWidth == 1140) {
         if (document.body.style.overflow == "hidden") {
             document.body.style.overflow = "";
             modalWrapper.classList.toggle(wrapperActiveClass);
@@ -32,11 +30,6 @@ function modalTogal(modal,modalWrapper,header,activeClass,wrapperActiveClass) {
                 modalWrapper.classList.toggle(wrapperActiveClass);
             },300);
         }
-    } else {
-        setTimeout(function(){
-            modalWrapper.classList.toggle(wrapperActiveClass);
-        },300);
-    }
 }
 
 export {modalTogal,counterIncrease,counterDecrease};

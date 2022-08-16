@@ -29,6 +29,7 @@
             width: 700px;
             height: 1200px;
             grid-template: 5% 25% 50% 10% 10%/ repeat(1, 100%);
+            top: 90%;
         }
         &__title {
             grid-column: 1 / 2;
@@ -92,6 +93,25 @@
         &__links {
             width: 90%;
             
+        }
+        &__title {
+            font-size: 25px;
+        }
+        &__descr {
+            font-size: 18px;
+            text-align: center;
+        }
+        &__composition {
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        &__price {
+            font-size: 20px;
+        }
+        &__close {
+            top: -20px;
+            right: 0;
+            font-size: 50px;
         }
         &__slider {
             margin-top: 150px;
