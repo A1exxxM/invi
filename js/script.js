@@ -143,31 +143,48 @@ function showDescr() {
         //item.lastChild.firstChild
   itemSpans = document.querySelectorAll('.accordion__item-close span'); //item.firstChild.lastChild.firstChild
 
-  function toggleClassesHeader(mainSelector, firstArray, item, secondArray) {
+  function toggleClassesHeader(mainSelector, firstArray, item, secondArray, thirdArray) {
     mainSelector.forEach((elem, i) => {
       elem.addEventListener('click', () => {
         if (item.contains(elem)) {
-          firstArray[i].classList.toggle('accordion__item-visible');
-          secondArray[i].classList.toggle('accordion__item-transformSquare');
+          if (!thirdArray[i].classList.contains('accordion__item-text_active')) {
+            firstArray[i].classList.toggle('accordion__item-visible');
+            secondArray[i].classList.toggle('accordion__item-transformSquare');
+            setTimeout(function () {
+              thirdArray[i].classList.toggle('accordion__item-text_active');
+            }, 700);
+          } else {
+            thirdArray[i].classList.toggle('accordion__item-text_active');
+            setTimeout(function () {
+              firstArray[i].classList.toggle('accordion__item-visible');
+              secondArray[i].classList.toggle('accordion__item-transformSquare');
+            }, 700);
+          }
         }
       });
     });
   }
 
-  function toggleClassesBody(mainSelector, array, item) {
-    let arrayParent = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+  function toggleClassesBody(mainSelector, array, item, arrayText) {
+    let arrayParent = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : undefined;
     mainSelector.forEach((elem, i) => {
       elem.addEventListener('click', e => {
         if (item.contains(elem)) {
           if (arrayParent == undefined) {
             if (e.target.classList.contains('accordion__item-visible')) {
-              e.target.classList.toggle('accordion__item-visible');
-              array[i].classList.toggle('accordion__item-transformSquare');
+              arrayText[i].classList.toggle('accordion__item-text_active');
+              setTimeout(function () {
+                e.target.classList.toggle('accordion__item-visible');
+                array[i].classList.toggle('accordion__item-transformSquare');
+              }, 700);
             }
           } else {
             if (arrayParent[i].classList.contains('accordion__item-visible')) {
-              arrayParent[i].classList.toggle('accordion__item-visible');
-              array[i].classList.toggle('accordion__item-transformSquare');
+              arrayText[i].classList.toggle('accordion__item-text_active');
+              setTimeout(function () {
+                arrayParent[i].classList.toggle('accordion__item-visible');
+                array[i].classList.toggle('accordion__item-transformSquare');
+              }, 700);
             }
           }
         }
@@ -191,9 +208,9 @@ function showDescr() {
   }
 
   itemAccordion.forEach(item => {
-    toggleClassesHeader(itemHeaders, itemDescrs, item, itemCloses);
-    toggleClassesBody(itemDescrs, itemCloses, item);
-    toggleClassesBody(itemTexts, itemCloses, item, itemDescrs);
+    toggleClassesHeader(itemHeaders, itemDescrs, item, itemCloses, itemTexts);
+    toggleClassesBody(itemDescrs, itemCloses, item, itemTexts);
+    toggleClassesBody(itemTexts, itemCloses, item, itemTexts, itemDescrs);
     hoverPlus(itemHeaders, '#000', 'mouseover', itemSpans, itemCloses, item);
     hoverPlus(itemHeaders, '#fff', 'mouseout', itemSpans, itemCloses, item);
   });
@@ -644,7 +661,7 @@ function products() {
     });
   }
 
-  items.forEach(item => {
+  items.forEach((item, i) => {
     setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "name");
     setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "price");
     item.addEventListener('mouseenter', () => {
@@ -699,12 +716,19 @@ const counterDecrease = array => {
 function modalTogal(modal, modalWrapper, header, activeClass, wrapperActiveClass) {
   modal.classList.toggle(activeClass);
   header.classList.toggle('header__hide');
+  const container = document.querySelector('.container');
 
-  if (document.body.style.overflow == "hidden") {
-    document.body.style.overflow = "";
-    modalWrapper.classList.toggle(wrapperActiveClass);
+  if (container.clientWidth == 1140) {
+    if (document.body.style.overflow == "hidden") {
+      document.body.style.overflow = "";
+      modalWrapper.classList.toggle(wrapperActiveClass);
+    } else {
+      document.body.style.overflow = "hidden";
+      setTimeout(function () {
+        modalWrapper.classList.toggle(wrapperActiveClass);
+      }, 300);
+    }
   } else {
-    document.body.style.overflow = "hidden";
     setTimeout(function () {
       modalWrapper.classList.toggle(wrapperActiveClass);
     }, 300);
