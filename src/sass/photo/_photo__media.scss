@@ -1,0 +1,46 @@
+@media (max-width: 1200px) {
+    .photo {
+        &__wrapper {
+            grid-template: repeat(2, 400px)/repeat(3, 300px);
+        }
+        &__item {
+            width: 300px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .photo {
+        &__wrapper {
+            grid-template: repeat(3, 400px)/repeat(2, 350px);
+        }
+        &__item {
+            width: 350px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .photo {
+        &__wrapper {
+            grid-template: repeat(6, 500px)/repeat(1, 450px);
+        }
+        &__item {
+            width: 450px;
+            height: 500px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .photo {
+        padding-bottom: 60px;
+        &__wrapper {
+            grid-template: repeat(6, 400px)/repeat(1, 290px);
+        }
+        &__item {
+            width: 290px;
+            height: 400px;
+        }
+    }
+}

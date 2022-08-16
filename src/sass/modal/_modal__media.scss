@@ -1,0 +1,115 @@
+@media (max-width: 1200px) {
+    .modal {
+        &__wrapper {
+            width: 900px;
+        }
+        &__links {
+            width: 100%;
+        }
+        &__slider {
+            width: 420px;
+            height: 480px;
+            &-wrapper {
+               height: 480px;
+               width: 65%;
+            }
+            &-next {
+                left: 380px; 
+            }
+        }
+        &__tabs {
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .modal {
+        &__wrapper {
+            width: 700px;
+            height: 1200px;
+            grid-template: 5% 25% 50% 10% 10%/ repeat(1, 100%);
+        }
+        &__title {
+            grid-column: 1 / 2;
+        }
+        &__descr {
+            grid-column: 1/2;
+        }
+        &__composition {
+            margin-top: 10px;
+        }
+        &__links {
+            width: 60%;
+            grid-row: 5/6;
+            grid-column: 1/2;
+        }
+        &__slider {
+            grid-row: 3/4;
+            &-next {
+                left: 500px;
+            }
+        }
+        &__tabs {
+            grid-row: 4/5;
+        }
+
+    }
+}
+
+@media (max-width: 768px) {
+    .modal {
+        &__wrapper {
+            width: 500px;
+            height: 1200px;
+            z-index: 6;
+        }
+        &__links {
+            width: 90%;
+            
+        }
+        &__slider {
+            &-next {
+                left: 400px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .modal {
+        &__submit {
+            width: 150px;
+            a {
+                font-size: 20px;
+            }
+        }
+        &__wrapper {
+            width: 300px;
+            height: 1300px;
+            z-index: 6;
+        }
+        &__links {
+            width: 90%;
+            
+        }
+        &__slider {
+            margin-top: 150px;
+            width: 250px;
+            height: 300px;
+            &-wrapper {
+                width: 250px;
+                height: 350px;
+            }
+            &-next {
+                left: 210px;
+            }
+            &-next,&-prev {
+                top: 55%;
+            }
+        }
+        &__tabs {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@media (max-width: 1200px) {
+    .accordion {
+        padding-bottom: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .accordion {
+        &__item {
+            &-text {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion {
+        &__item {
+            &-text {
+                font-size: 14px;
+            }
+            &-header {
+                height: 50px;
+            }
+            &-title {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .accordion {
+        &__item {
+            &-header {
+                height: 45px;
+            }
+            &-text {
+                font-size: 12px;
+            }
+            &-title {
+                font-size: 20px;
+            }
+        }
+    }
+}
