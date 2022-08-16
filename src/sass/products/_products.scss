@@ -18,9 +18,11 @@
         &:nth-child(1),&:nth-child(2) {
             margin-bottom: 60px;
         }
+        
         &-photo {
             width: 100%;
             transition: 0.6s all;
+            background-color: #000;
             img {
                 width: 100%;
                 transition: 0.6s all;
@@ -40,13 +42,13 @@
         margin-top: 80px;
         text-align: center;
         font-size: 25px;
+        transition: 3s all;
+        opacity: 0;
         span {
             background-color: #000;
             border-radius: 5px;
             color: $colorOne;
         }
-        transition: 3s all;
-        opacity: 0;
         &-active {
             opacity: 1;
         }

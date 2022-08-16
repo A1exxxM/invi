@@ -13,6 +13,7 @@
 @import 'about/about';
 @import 'modal/modal';
 @import 'images/images';
+@import 'libs/media';
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -49,4 +50,12 @@ body {
 
 .changePlusBlack {
     background-color: $colorTwo;
+}
+
+.imgShow {
+    opacity: 1;
+}
+
+.imgHide {
+    opacity: 0;
 }

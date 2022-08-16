@@ -18,7 +18,7 @@
         margin: 0 auto;
         width: 600px;
         height: 800px;
-        background-color: #fff;
+        background-color: #000;
         border: 2px solid #fff;
         border-radius: 10px;
         overflow: hidden;
@@ -32,7 +32,7 @@
             height: 100%;
             object-fit: cover;
             position: absolute;
-            transition: 0.8s all;
+            transition: 1.2s all;
         }
         &-next {
             left: 535px;  
