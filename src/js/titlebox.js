@@ -11,5 +11,9 @@ function animateBtn() {
     btn.addEventListener('click',()=>{
         products.scrollIntoView({behavior: "smooth"});
     });
+    const logo = document.querySelector('.titlebox__logotype');
+    setTimeout(function() {
+        logo.classList.add('titlebox__logotype-active');
+    },1500);
 }
 export default animateBtn;

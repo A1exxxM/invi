@@ -3,16 +3,16 @@
     padding: 100px 0;
     &__wrapper {
         display: grid;
-        grid-template: repeat(2, 400px)/repeat(3, 350px);
+        grid-template: repeat(3, 400px)/repeat(3, 350px);
         justify-content: center;
-        gap: 5px;
+        gap: 10px;
         margin-top: 90px;
     }
     &__item {
         width: 350px;
         height: 400px;
         cursor: pointer;
-        transition: 0.3s all;
+        transition: 0.4s all;
         &:hover {
             transform: scale(1.1);
         }

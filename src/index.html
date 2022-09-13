@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Invi-store | STREETWEAR">
+    <meta name="description" content="Ты наконец пришёл - полный навязанных ценностей и представлений о мире, о котором тебе ничего неизвестно. Ты уже давно почувствовал присутствие тьмы внутри...">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://invi-store.ru">
+    <meta property="og:title" content="Invi-store | STREETWEAR">
+    <meta property="og:description" content="Ты наконец пришёл - полный навязанных ценностей и представлений о мире, о котором тебе ничего неизвестно. Ты уже давно почувствовал присутствие тьмы внутри...">
+    <meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://invi-store.ru">
+    <meta property="twitter:title" content="Invi-store | STREETWEAR">
+    <meta property="twitter:description" content="Ты наконец пришёл - полный навязанных ценностей и представлений о мире, о котором тебе ничего неизвестно. Ты уже давно почувствовал присутствие тьмы внутри...">
+    <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png">
     <title>Invi</title>
     <link rel="stylesheet" href="css/style.min.css">
     <script defer src="https://kit.fontawesome.com/358fa4c279.js" crossorigin="anonymous"></script>
@@ -16,12 +28,14 @@
                     <li class="header__list-item" id="photo">Фотосет</li>
                     <li class="header__list-item" id="about">Философия</li>
                     <li class="header__list-item" id="faq">FAQ</li>
-                    <!-- <li class="header__list-item" id="contacts">Контакты</li> -->
                 </ul>
         </nav>
     </header>
     <section class="titlebox">
         <div class="container">
+            <div class="titlebox__logotype">
+                <img src="img/logo_example.jpg" alt="main logotype">
+            </div>
             <h1 class="titlebox__title animate__animated animate__backInLeft">Invi.store</h1>
             <h2 class="titlebox__subtitle animate__animated animate__backInRight">Отбрось сомнения</h2>
             <button class="button titlebox__btn visible">Поехали</button>
@@ -58,14 +72,6 @@
                     <div class="products__divider divider"></div>
                     <div class="products__item-price"></div>
                 </div>
-                <div class="products__item">
-                    <div class="products__item-photo">
-                        <img src="img/tshirt_main.png" alt="#">
-                    </div>
-                    <div class="products__item-name"></div>
-                    <div class="products__divider divider"></div>
-                    <div class="products__item-price"></div>
-                </div>
             </div>
         </div>
     </section>
@@ -78,6 +84,9 @@
                 <div class="photo__item"><img src="img/tshirt_hover.png" alt="#"></div>
                 <div class="photo__item"><img src="img/tshirt_main.png" alt="#"></div>
                 <div class="photo__item"><img src="img/test3.jpg" alt="#"></div>
+                <div class="photo__item"><img src="img/test2.png" alt="#"></div>
+                <div class="photo__item"><img src="img/test.png" alt="#"></div>
+                <div class="photo__item"><img src="img/test4.png" alt="#"></div>
                 <div class="photo__item"><img src="img/test2.png" alt="#"></div>
                 <div class="photo__item"><img src="img/test.png" alt="#"></div>
                 <div class="photo__item"><img src="img/test4.png" alt="#"></div>
@@ -198,8 +207,7 @@
         <div class="container">
             <h2 class="contacts__title">Свяжись с нами</h2>
             <div class="contacts__wrapper">
-                <a href="#" class="contacts__link"><i class="fa-brands fa-vk"></i></a>
-                <a href="#" class="contacts__link"><i class="fa-brands fa-instagram"></i></a>
+                <a  target="_blank" href="https://vk.com/invistore" class="contacts__link"><i class="fa-brands fa-vk"></i></a>
             </div>
         </div>
     </footer>
@@ -217,9 +225,9 @@
                     <span></span>
                 </div>
                 <div class="modal__slider-wrapper">
-                    <img src="" alt="#">
-                    <img src="" alt="#">
-                    <img src="" alt="#">
+                    <img src="about:blank" alt="#">
+                    <img src="about:blank" alt="#">
+                    <img src="about:blank" alt="#">
                 </div>
                 <div class="arrow arrow__prev modal__slider-prev">
                     <span></span>
@@ -228,13 +236,13 @@
             </div>
             <div class="modal__tabs">
                 <div class="modal__tabs-item">
-                    <img src="" alt="#">
+                    <img src="about:blank" alt="#">
                 </div>
                 <div class="modal__tabs-item">
-                    <img src="" alt="#">
+                    <img src="about:blank" alt="#">
                 </div>
                 <div class="modal__tabs-item">
-                    <img src="" alt="#">
+                    <img src="about:blank" alt="#">
                 </div>
             </div>
             <div class="modal__title"></div>
@@ -244,9 +252,9 @@
             </div>
             <div class="modal__links">
                 <div class="modal__price"></div>
-                <button class="button modal__submit">
-                    <a href="#">Купить</a>
-                </button>
+                <form action="https://vk.com/invistore" target="_blank">
+                    <button class="button modal__submit">Купить</button>
+                </form>
             </div>
             <div class="modal__close">&times;</div>
         </div>

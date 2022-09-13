@@ -48,7 +48,7 @@ function animateHeader() {
             } else {
                 navItem.classList.remove('changeScrollColor');
             }
-        })
+        });
 
     }
     showNavElemActive(productsScrollPoint,photoScrollPoint,products);

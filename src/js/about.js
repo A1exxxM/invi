@@ -9,7 +9,7 @@ function about() {
             if (i == numberOfElem) {
                 item.classList.add(activeClass);
             }
-        })
+        });
     }
 
     buttons.forEach((button,i) => {
@@ -17,7 +17,7 @@ function about() {
             showElem(titles,'about__item-title_active',i);
             showElem(descrs,'about__item-descr_active',i);
         });
-    })
+    });
 
 }
 

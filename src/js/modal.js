@@ -16,12 +16,12 @@ function modal() {
     
           
     function setInfo(array,i,arg,selector) {
-        selector.textContent = array[i][`${arg}`]
+        selector.textContent = array[i][`${arg}`];
     }
     
     function setSrc(selector,arg,array,numberOfElement) {
         selector.forEach((item,i) => {
-            item.src = array[numberOfElement][`${arg}`][i]
+            item.src = array[numberOfElement][`${arg}`][i];
         });
     }
 
