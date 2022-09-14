@@ -67,12 +67,17 @@
             display: block;
             transition: 0.6s all ease;
             opacity: 0;
+            font-size: 20px;
+            a {
+                color: inherit;
+                text-decoration: underline;
+            }
             &_active {
                 opacity: 1;
             }
         }
         &-visible {
-            height: 250px;
+            height: 200px;
             padding: 20px;
             border: 2px solid $colorTwo;
             transition: 0.7s all ease;
