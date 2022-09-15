@@ -40,7 +40,7 @@ function animateHeader() {
 
     function showNavElemActive(firstPoint,secondPoint,navItem) {
         const a = firstPoint.getBoundingClientRect().top - 1,
-              b = secondPoint.getBoundingClientRect().top;
+              b = secondPoint.getBoundingClientRect().top - 1;
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > a && window.scrollY < b) {
