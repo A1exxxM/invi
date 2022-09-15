@@ -5,8 +5,10 @@ function modal() {
           descr = document.querySelector('.modal__descr span'),
           composition = document.querySelector('.modal__materials'),
           price = document.querySelector('.modal__price'),
+          mainPrice = document.querySelector('.modal__mainPrice'),
           srcSlider = document.querySelectorAll('.modal__slider-wrapper img'),
           srcTabs = document.querySelectorAll('.modal__tabs-item img'),
+          form = document.querySelector('.modal__links form'),
           products = document.querySelectorAll('.products__item'),
           header = document.querySelector('.header'),
           modal = document.querySelector('.modal'),
@@ -24,6 +26,7 @@ function modal() {
             item.src = array[numberOfElement][`${arg}`][i];
         });
     }
+    
 
 
     products.forEach((product,i) => {
@@ -32,8 +35,10 @@ function modal() {
             setInfo(data,i,"descr",descr);
             setInfo(data,i,"composition",composition);
             setInfo(data,i,"price",price);
+            setInfo(data,i,"mainPrice",mainPrice);
             setSrc(srcSlider,"modalSrc",data,i);
             setSrc(srcTabs,"modalSrc",data,i);
+            form.action = data[i].link;
             modalTogal(modal,modalBlock,header,'modal__active','modal__wrapper-active');
         });
     });

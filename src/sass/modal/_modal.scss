@@ -70,10 +70,20 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 70%;
+        width: 85%;
         margin: 0 auto;
     }
-
+    &__prices {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 250px;
+    }
+    &__mainPrice {
+        font-size: 25px;
+        text-decoration: line-through;
+        color: #808080; 
+    }
     &__price {
         font-size: 25px;
     }

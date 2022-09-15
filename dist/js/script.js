@@ -231,34 +231,40 @@ function showDescr() {
 __webpack_require__.r(__webpack_exports__);
 const data = [{
   name: "Fool's Desperation",
-  price: 'Цена 1',
+  price: '2000 руб.',
+  mainPrice: '2290 руб.',
   hoverSrc: "img/Fool's Desperation/2.jpg",
   mainSrc: "img/Fool's Desperation/1.jpg",
   tagline: 'Текст 1',
   colection: 'The Ascendance of Darkness',
   modalSrc: ["img/Fool's Desperation/1.jpg", "img/Fool's Desperation/2.jpg", "img/Fool's Desperation/3.jpg"],
   descr: 'Глупость - вершина человеческого общетва. В неведении легче жить и не замечать бесполезности бытия.Вот мой первый подарок - познай же красоту знаний, дарованную тьмой...',
-  composition: 'Кулирка : 92% Лайкра : 8%'
+  composition: 'Кулирка : 92% Лайкра : 8%',
+  link: 'https://vk.com/market-143833715'
 }, {
   name: 'Decepton Beauty',
-  price: 'Цена 2',
+  price: '2000 руб.',
+  mainPrice: '2290 руб.',
   hoverSrc: "img/Deception Beauty/2.jpg",
-  mainSrc: "img/Deception Beauty/1.png",
+  mainSrc: "img/Deception Beauty/1.jpg",
   tagline: 'Текст 2',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ["img/Deception Beauty/1.png", "img/Deception Beauty/2.jpg", "img/Deception Beauty/3.jpg"],
+  modalSrc: ["img/Deception Beauty/1.jpg", "img/Deception Beauty/2.jpg", "img/Deception Beauty/3.jpg"],
   descr: 'А вот и мой следущий подарок. Он избавит тебя от навязанных толпами невежд качеств. Во тьме ты сможешь узреть истинную красоту и уродство...',
-  composition: 'Кулирка : 92% Лайкра : 8%'
+  composition: 'Кулирка : 92% Лайкра : 8%',
+  link: 'https://vk.com/market-143833715'
 }, {
   name: 'Unformed Darkness',
-  price: 'Цена 3',
+  price: '1800 руб.',
+  mainPrice: '2000 руб.',
   hoverSrc: 'img/Unformed Darkness/3.jpg',
-  mainSrc: 'img/Unformed Darkness/1.png',
+  mainSrc: 'img/Unformed Darkness/1.jpg',
   tagline: 'Текст 3',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ['img/Unformed Darkness/1.png', 'img/Unformed Darkness/2.jpg', 'img/Unformed Darkness/3.jpg'],
+  modalSrc: ['img/Unformed Darkness/1.jpg', 'img/Unformed Darkness/2.jpg', 'img/Unformed Darkness/3.jpg'],
   descr: 'Теперь ты готов к моему последнему подарку. Прими его и приблизься к совершенству. Но помни о главном - тьма может принимать любую форму. Теперь иди и погрузи ещё больше людей в нашу веру...',
-  composition: 'Кулирка : 92% Лайкра : 8%'
+  composition: 'Кулирка : 92% Лайкра : 8%',
+  link: 'https://vk.com/market-143833715'
 }];
 /* harmony default export */ __webpack_exports__["default"] = (data);
 
@@ -478,8 +484,10 @@ function modal() {
         descr = document.querySelector('.modal__descr span'),
         composition = document.querySelector('.modal__materials'),
         price = document.querySelector('.modal__price'),
+        mainPrice = document.querySelector('.modal__mainPrice'),
         srcSlider = document.querySelectorAll('.modal__slider-wrapper img'),
         srcTabs = document.querySelectorAll('.modal__tabs-item img'),
+        form = document.querySelector('.modal__links form'),
         products = document.querySelectorAll('.products__item'),
         header = document.querySelector('.header'),
         modal = document.querySelector('.modal'),
@@ -502,8 +510,10 @@ function modal() {
       setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "descr", descr);
       setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "composition", composition);
       setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "price", price);
+      setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], i, "mainPrice", mainPrice);
       setSrc(srcSlider, "modalSrc", _data__WEBPACK_IMPORTED_MODULE_0__["default"], i);
       setSrc(srcTabs, "modalSrc", _data__WEBPACK_IMPORTED_MODULE_0__["default"], i);
+      form.action = _data__WEBPACK_IMPORTED_MODULE_0__["default"][i].link;
       Object(_slider__WEBPACK_IMPORTED_MODULE_1__["modalTogal"])(modal, modalBlock, header, 'modal__active', 'modal__wrapper-active');
     });
   });
@@ -611,6 +621,8 @@ function products() {
   const items = document.querySelectorAll('.products__item'),
         itemPrices = document.querySelectorAll('.products__item-price'),
         itemNames = document.querySelectorAll('.products__item-name'),
+        itemMainPrices = document.querySelectorAll('.products__item-mainPrice'),
+        itemPriceWrapper = document.querySelectorAll('.products__item-wrapper'),
         srcPaths = document.querySelectorAll('.products__item-photo img'),
         collectionInfo = document.querySelector('.products__collection');
   window.addEventListener('scroll', () => {
@@ -623,6 +635,32 @@ function products() {
     selector.forEach((item, i) => {
       if (element.contains(item)) {
         item.textContent = array[i][`${arg}`];
+      }
+    });
+  }
+
+  function togglePriceWrapperActive(selector, element) {
+    selector.forEach((item, i) => {
+      if (element.contains(item)) {
+        itemMainPrices[i].style.opacity = '0';
+        setTimeout(function () {
+          item.classList.toggle('products__item-wrapper_active');
+          setMainPrice(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemMainPrices, element, "mainPrice", item);
+        }, 400);
+      }
+    });
+  }
+
+  function setMainPrice(array, selector, element, arg, item) {
+    selector.forEach((elem, i) => {
+      if (element.contains(elem)) {
+        if (!item.classList.contains('products__item-wrapper_active')) {
+          elem.textContent = array[i][`${arg}`];
+          elem.style.opacity = '1';
+        } else {
+          elem.textContent = '';
+          elem.style.opacity = '1';
+        }
       }
     });
   }
@@ -654,15 +692,18 @@ function products() {
   items.forEach((item, i) => {
     setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "name");
     setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "price");
+    setInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemMainPrices, item, "mainPrice");
     item.addEventListener('mouseenter', () => {
       setSrc(_data__WEBPACK_IMPORTED_MODULE_0__["default"], srcPaths, item, "hoverSrc");
       setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "colection");
       setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "tagline");
+      togglePriceWrapperActive(itemPriceWrapper, item);
     });
     item.addEventListener('mouseleave', () => {
       setSrc(_data__WEBPACK_IMPORTED_MODULE_0__["default"], srcPaths, item, "mainSrc");
       setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemNames, item, "name");
       setHoverInfo(_data__WEBPACK_IMPORTED_MODULE_0__["default"], itemPrices, item, "price");
+      togglePriceWrapperActive(itemPriceWrapper, item);
     });
   });
 }

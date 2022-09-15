@@ -10,6 +10,7 @@
     }
     &__item {
         width: 350px;
+        height: 650px;
         cursor: pointer;
         &-photo {
             width: 100%;
@@ -22,6 +23,24 @@
                 object-fit: cover;
                 transition: 0.6s all;
                 opacity: 1;
+            }
+        }
+        &-mainPrice {
+            transition: 0.6s all;
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: 600;
+            text-decoration: line-through;
+            color: #808080; 
+        }
+        &-wrapper {
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-between;
+            width: 60%;
+            &_active {
+                width: 100%;
+                justify-content: center;
             }
         }
         &-name,&-price {
