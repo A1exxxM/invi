@@ -6,6 +6,9 @@
         &__links {
             width: 100%;
         }
+        &__prices {
+            width: 150px;
+        }
         &__slider {
             width: 420px;
             height: 480px;
@@ -41,9 +44,12 @@
             margin-top: 10px;
         }
         &__links {
-            width: 60%;
+            width: 80%;
             grid-row: 5/6;
             grid-column: 1/2;
+        }
+        &__prices {
+            width: 250px;
         }
         &__slider {
             grid-row: 3/4;

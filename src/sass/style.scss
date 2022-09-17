@@ -8,11 +8,11 @@
 @import 'products/products';
 @import 'contacts/contacts';
 @import 'accordion/accordion';
-@import 'pageup/pageup';
 @import 'blocks/blocks';
 @import 'about/about';
 @import 'modal/modal';
 @import 'images/images';
+@import 'privacy/privacy.scss';
 @import 'libs/media';
 @import 'header/header__media';
 @import 'titlebox/titlebox__media';
@@ -33,6 +33,10 @@
 .container {
     width: 1140px;
     margin: 0 auto;
+}
+
+body {
+    background: url('../img/pattern.png');
 }
 
 .visible {

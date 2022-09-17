@@ -1,7 +1,11 @@
 @media (max-width: 1200px) {
     .products {
+        min-height: 900px;
         &__wrapper {
             padding: 0 40px;
+        }
+        &__item {
+            margin-bottom: 20px;
         }
     }
 }
@@ -25,6 +29,9 @@
 @media (max-width: 768px) {
     .products {
         padding-bottom: 80px;
+        &__subtitle {
+            font-size: 29px;
+        }
         &__wrapper {
             flex-wrap: wrap;
         }
@@ -34,7 +41,10 @@
             margin-bottom: 20px;
             &:nth-child(1),&:nth-child(2) {
                 margin-bottom: 20px;
-            }    
+            }   
+            &-wrapper {
+                width: 80%;
+            } 
         }
         &__collection {
             font-size: 18px;
@@ -48,6 +58,9 @@
         padding-bottom: 60px;
         &__wrapper {
             padding: 0;
+        }
+        &__subtitle {
+            font-size: 23px;
         }
         &__item {
             width: 280px;

@@ -1,9 +1,7 @@
 .accordion {
     padding: 100px 0;
     min-height: 600px;
-    &__subtitle {
-        margin-bottom: 90px;
-    }
+    
     &__item {
         width: 85%;
         margin: 0 auto;
@@ -82,6 +80,7 @@
             border: 2px solid $colorTwo;
             transition: 0.7s all ease;
             cursor: pointer;
+            background-color: #fff;
         }
         &-transformSquare {
             span {

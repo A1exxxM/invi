@@ -31,14 +31,19 @@
             flex-direction: column;
         }
         &__item{
-            height: 400px;
             width: 100%;
             margin-bottom: 50px;
             &:last-child {
                 margin-bottom: 0;
             }
+            &-title {
+                font-size: 30px;
+                span {
+                    font-size: 27px;
+                }
+            }
             &-descr {
-                font-size: 17px; 
+                font-size: 21px; 
             }
             &-btn {
                 width: 200px;
@@ -51,7 +56,6 @@
 @media (max-width: 576px) {
     .about {
         &__item{
-            height: 450px;
             &-descr {
                 font-size: 15px; 
             }

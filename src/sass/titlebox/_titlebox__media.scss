@@ -12,15 +12,23 @@
 }
 
 @media (max-width: 768px) {
-    
+    .titlebox {
+        &__logotype {
+            width: 150px;
+            height: 150px;
+        }
+    }
 }
 
 @media (max-width: 576px) {
     .titlebox {
         min-height: calc(100vh - 50px);
         padding-top: 100px;
-        &__title,&__subtitle {
+        &__title {
             font-size: 35px;
+        }
+        &__subtitle {
+            font-size: 26px;
         }
         &__btn {
             width: 200px;
