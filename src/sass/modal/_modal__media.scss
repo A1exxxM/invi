@@ -97,8 +97,7 @@
             z-index: 6;
         }
         &__links {
-            width: 90%;
-            
+            width: 100%;
         }
         &__title {
             font-size: 25px;
@@ -111,8 +110,8 @@
             margin: 0 auto;
             margin-top: 30px;
         }
-        &__price {
-            font-size: 20px;
+        &__price,&__mainPrice {
+            font-size: 18px;
         }
         &__close {
             top: -20px;

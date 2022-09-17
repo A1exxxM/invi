@@ -27,6 +27,11 @@
     .subtitle {
         font-size: 17px;
     }
+    .block {
+        &_p60 {
+            padding: 20px 50px;
+        }
+    }
 }
 
 // @media (max-width: 1200px) {
