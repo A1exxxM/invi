@@ -26,8 +26,12 @@ function images() {
             
             item.classList.add('imgHide');
             if (counter == i) {
+                if (i == 1 || i == 2 || i == 5 || i == 9) {
+                    wrapper.classList.add('images__wrapper-changeSize');
+                } else {
+                    wrapper.classList.remove('images__wrapper-changeSize');
+                }
                 item.classList.remove('imgHide');
-                
             }
             
         });

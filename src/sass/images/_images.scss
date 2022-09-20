@@ -27,6 +27,10 @@
         &-active {
             opacity: 1;
         }
+        &-changeSize {
+            width: 800px;
+            height: 600px;
+        }
         img {
             width: 100%;
             height: 100%;
@@ -35,7 +39,7 @@
             transition: 1.2s all;
         }
         &-next {
-            left: 535px;  
+            right: 0;
         }
     }
 }
