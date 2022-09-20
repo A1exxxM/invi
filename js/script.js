@@ -237,7 +237,7 @@ const data = [{
   mainSrc: "img/Fool's Desperation/1.webp",
   tagline: 'Текст 1',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ["img/Fool's Desperation/1.webp", "img/Fool's Desperation/2.webp", "img/Fool's Desperation/3.webp"],
+  modalSrc: ["img/Fool's Desperation/1.webp", "img/Fool's Desperation/2.webp", "img/Fool's Desperation/3.webp", 'img/size_chart.webp'],
   descr: 'Глупость - вершина человеческого общетва. В неведении легче жить и не замечать бесполезности бытия.Вот мой первый подарок - познай же красоту знаний, дарованную тьмой...',
   composition: 'Кулирка : 92% Лайкра : 8%',
   link: 'https://vk.com/market-143833715'
@@ -249,7 +249,7 @@ const data = [{
   mainSrc: "img/Deception Beauty/1.webp",
   tagline: 'Текст 2',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ["img/Deception Beauty/1.webp", "img/Deception Beauty/2.webp", "img/Deception Beauty/3.webp"],
+  modalSrc: ["img/Deception Beauty/1.webp", "img/Deception Beauty/2.webp", "img/Deception Beauty/3.webp", 'img/size_chart.webp'],
   descr: 'А вот и мой следущий подарок. Он избавит тебя от навязанных толпами невежд качеств. Во тьме ты сможешь узреть истинную красоту и уродство...',
   composition: 'Кулирка : 92% Лайкра : 8%',
   link: 'https://vk.com/market-143833715'
@@ -261,7 +261,7 @@ const data = [{
   mainSrc: 'img/Unformed Darkness/1.webp',
   tagline: 'Текст 3',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ['img/Unformed Darkness/1.webp', 'img/Unformed Darkness/2.webp', 'img/Unformed Darkness/3.webp'],
+  modalSrc: ['img/Unformed Darkness/1.webp', 'img/Unformed Darkness/2.webp', 'img/Unformed Darkness/3.webp', 'img/size_chart.webp'],
   descr: 'Теперь ты готов к моему последнему подарку. Прими его и приблизься к совершенству. Но помни о главном - тьма может принимать любую форму. Теперь иди и погрузи ещё больше людей в нашу веру...',
   composition: 'Кулирка : 92% Лайкра : 8%',
   link: 'https://vk.com/market-143833715'
@@ -384,6 +384,12 @@ function images() {
       item.classList.add('imgHide');
 
       if (counter == i) {
+        if (i == 1 || i == 2 || i == 5 || i == 9) {
+          wrapper.classList.add('images__wrapper-changeSize');
+        } else {
+          wrapper.classList.remove('images__wrapper-changeSize');
+        }
+
         item.classList.remove('imgHide');
       }
     });
