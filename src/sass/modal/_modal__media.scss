@@ -1,3 +1,15 @@
+@media (max-width: 1400px) {
+    .modal {
+        &__wrapper {
+            height: 90vh;
+        }
+        &__slider {
+            &-wrapper {
+                height: 60vh;
+            }
+        }
+    }
+}
 @media (max-width: 1200px) {
     .modal {
         &__wrapper {
@@ -13,7 +25,6 @@
             width: 420px;
             height: 480px;
             &-wrapper {
-               height: 480px;
                width: 65%;
             }
             &-next {
