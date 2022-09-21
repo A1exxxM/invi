@@ -17,6 +17,7 @@
 @media (max-width: 768px) {
     .accordion {
         &__item {
+            width: 100%;
             &-text {
                 font-size: 14px;
             }
