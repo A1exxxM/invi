@@ -1,3 +1,11 @@
+@media (max-width: 1400px) {
+    .images {
+        &__wrapper {
+            height: 700px;
+
+        }
+    }
+}
 @media (max-width: 1200px) {
     .images {
         &__wrapper {
