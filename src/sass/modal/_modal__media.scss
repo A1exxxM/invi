@@ -34,6 +34,10 @@
         &__tabs {
             width: 80%;
         }
+        &__price, &__mainPrice {
+            font-size: 22px;
+        }
+
     }
 }
 
@@ -71,6 +75,9 @@
         &__tabs {
             grid-row: 4/5;
         }
+        &__price, &__mainPrice {
+            font-size: 26px;
+        }
 
     }
 }
@@ -90,6 +97,9 @@
             &-next {
                 left: 400px;
             }
+        }
+        &__price, &__mainPrice {
+            font-size: 23px;
         }
     }
 }
@@ -122,7 +132,7 @@
             margin-top: 30px;
         }
         &__price,&__mainPrice {
-            font-size: 18px;
+            font-size: 16px;
         }
         &__close {
             top: -20px;

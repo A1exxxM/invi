@@ -14,7 +14,7 @@
     .about {
         &__item{
             &-descr {
-                font-size: 14px; 
+                font-size: 15px; 
             }
             &-btn {
                 width: 200px;
@@ -57,7 +57,12 @@
     .about {
         &__item{
             &-descr {
-                font-size: 15px; 
+                font-size: 18px; 
+            }
+            &-title {
+                span {
+                    font-size: 20px;
+                }
             }
         }
     }

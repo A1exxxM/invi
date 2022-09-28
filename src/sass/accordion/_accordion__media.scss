@@ -8,9 +8,12 @@
     .accordion {
         &__item {
             &-text {
-                font-size: 15px;
+                font-size: 22px;
             }
         }
+    }
+    #bigText {
+        font-size: 16px;
     }
 }
 
@@ -19,7 +22,7 @@
         &__item {
             width: 100%;
             &-text {
-                font-size: 14px;
+                font-size: 22px;
             }
             &-header {
                 height: 50px;
@@ -28,6 +31,9 @@
                 font-size: 20px;
             }
         }
+    }
+    #bigText {
+        font-size: 15px;
     }
 }
 
@@ -38,7 +44,7 @@
                 height: 45px;
             }
             &-text {
-                font-size: 12px;
+                font-size: 18px;
             }
             &-visible {
                 height: 300px;
@@ -47,5 +53,8 @@
                 font-size: 15px;
             }
         }
+    }
+    #bigText {
+        font-size: 13px;
     }
 }
