@@ -7,7 +7,9 @@ function products() {
           itemMainPrices = document.querySelectorAll('.products__item-mainPrice'),
           itemPriceWrapper = document.querySelectorAll('.products__item-wrapper'),
           srcPaths = document.querySelectorAll('.products__item-photo img'),
-          collectionInfo = document.querySelector('.products__collection');
+          collectionInfo = document.querySelector('.products__collection'),
+          testOne = document.querySelectorAll('.products__item-price span'),
+          testTwo = document.querySelectorAll('.products__item-mainPrice span');
     
     window.addEventListener('scroll', ()=> {
         if (window.scrollY >= 700) {
@@ -16,13 +18,19 @@ function products() {
     });
 
 
-    
+    function setPrice(array, selector, element, arg) {
+        selector.forEach((item,i) => {
+            if (element.contains(item)) {
+                item.textContent = array[i][`${arg}`] + " ";
+            }
+        });
+    }
 
     function setInfo(array, selector, element, arg) {
         
         selector.forEach((item,i) => {
             if (element.contains(item)) {
-                item.textContent = array[i][`${arg}`];
+                item.innerHTML = array[i][`${arg}`];
             }
         });
     }
@@ -43,7 +51,7 @@ function products() {
         selector.forEach((elem,i) => {
             if (element.contains(elem)) {
                 if (!item.classList.contains('products__item-wrapper_active')) {
-                        elem.textContent = array[i][`${arg}`];
+                        elem.innerHTML = array[i][`${arg}`];
                         elem.style.opacity = '1';
                 } else {
                         elem.textContent = '';
@@ -58,7 +66,7 @@ function products() {
             if (element.contains(item)) {
                 item.style.opacity = '0';
                 setTimeout(function(){
-                    item.textContent = array[i][`${arg}`];
+                    item.innerHTML = array[i][`${arg}`];
                     item.style.opacity = '1';
                 },400);
             }
