@@ -231,37 +231,37 @@ function showDescr() {
 __webpack_require__.r(__webpack_exports__);
 const data = [{
   name: "Fool's Desperation",
-  price: '1990 руб.',
-  mainPrice: '2290 руб.',
+  price: `1990 <i class="fa-solid fa-ruble-sign"></i>`,
+  mainPrice: `2290 <i class="fa-solid fa-ruble-sign"></i>`,
   hoverSrc: "img/Fool's Desperation/2.webp",
   mainSrc: "img/Fool's Desperation/1.webp",
-  tagline: 'Текст 1',
+  tagline: 'Оверсайз футболка',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ["img/Fool's Desperation/1.webp", "img/Fool's Desperation/2.webp", "img/Fool's Desperation/3.webp", 'img/size.jpg'],
+  modalSrc: ["img/Fool's Desperation/1.webp", "img/Fool's Desperation/2.webp", "img/Fool's Desperation/3.webp", 'img/size.webp'],
   descr: 'Глупость - вершина человеческого общества. В неведении легче жить и не замечать бесполезности бытия. Вот мой первый подарок - познай же красоту знаний, дарованную тьмой... ',
   composition: 'Кулирка : 92% Лайкра : 8%',
   link: 'https://vk.com/market-143833715'
 }, {
   name: 'Decepton Beauty',
-  price: '1990 руб.',
-  mainPrice: '2290 руб.',
+  price: '1990 <i class="fa-solid fa-ruble-sign"></i>',
+  mainPrice: '2290 <i class="fa-solid fa-ruble-sign"></i>',
   hoverSrc: "img/Deception Beauty/2.webp",
   mainSrc: "img/Deception Beauty/1.webp",
-  tagline: 'Текст 2',
+  tagline: 'Оверсайз футболка',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ["img/Deception Beauty/1.webp", "img/Deception Beauty/2.webp", "img/Deception Beauty/3.webp", 'img/size.jpg'],
+  modalSrc: ["img/Deception Beauty/1.webp", "img/Deception Beauty/2.webp", "img/Deception Beauty/3.webp", 'img/size.webp'],
   descr: 'А вот и мой следущий подарок. Он избавит тебя от навязанных толпами невежд качеств. Во тьме ты сможешь узреть истинную красоту и уродство...',
   composition: 'Кулирка : 92% Лайкра : 8%',
   link: 'https://vk.com/market-143833715'
 }, {
   name: 'Unformed Darkness',
-  price: '1800 руб.',
-  mainPrice: '2000 руб.',
+  price: '1800 <i class="fa-solid fa-ruble-sign"></i>',
+  mainPrice: '2000 <i class="fa-solid fa-ruble-sign"></i>',
   hoverSrc: 'img/Unformed Darkness/3.webp',
   mainSrc: 'img/Unformed Darkness/1.webp',
-  tagline: 'Текст 3',
+  tagline: 'Оверсайз футболка',
   colection: 'The Ascendance of Darkness',
-  modalSrc: ['img/Unformed Darkness/1.webp', 'img/Unformed Darkness/2.webp', 'img/Unformed Darkness/3.webp', 'img/size.jpg'],
+  modalSrc: ['img/Unformed Darkness/1.webp', 'img/Unformed Darkness/2.webp', 'img/Unformed Darkness/3.webp', 'img/size.webp'],
   descr: 'Теперь ты готов к моему последнему подарку. Прими его и приблизься к совершенству. Но помни о главном - тьма может принимать любую форму. Теперь иди и погрузи ещё больше людей в нашу веру...',
   composition: 'Кулирка : 92% Лайкра : 8%',
   link: 'https://vk.com/market-143833715'
@@ -595,17 +595,27 @@ function products() {
         itemMainPrices = document.querySelectorAll('.products__item-mainPrice'),
         itemPriceWrapper = document.querySelectorAll('.products__item-wrapper'),
         srcPaths = document.querySelectorAll('.products__item-photo img'),
-        collectionInfo = document.querySelector('.products__collection');
+        collectionInfo = document.querySelector('.products__collection'),
+        testOne = document.querySelectorAll('.products__item-price span'),
+        testTwo = document.querySelectorAll('.products__item-mainPrice span');
   window.addEventListener('scroll', () => {
     if (window.scrollY >= 700) {
       collectionInfo.classList.add('products__collection-active');
     }
   });
 
+  function setPrice(array, selector, element, arg) {
+    selector.forEach((item, i) => {
+      if (element.contains(item)) {
+        item.textContent = array[i][`${arg}`] + " ";
+      }
+    });
+  }
+
   function setInfo(array, selector, element, arg) {
     selector.forEach((item, i) => {
       if (element.contains(item)) {
-        item.textContent = array[i][`${arg}`];
+        item.innerHTML = array[i][`${arg}`];
       }
     });
   }
@@ -626,7 +636,7 @@ function products() {
     selector.forEach((elem, i) => {
       if (element.contains(elem)) {
         if (!item.classList.contains('products__item-wrapper_active')) {
-          elem.textContent = array[i][`${arg}`];
+          elem.innerHTML = array[i][`${arg}`];
           elem.style.opacity = '1';
         } else {
           elem.textContent = '';
@@ -641,7 +651,7 @@ function products() {
       if (element.contains(item)) {
         item.style.opacity = '0';
         setTimeout(function () {
-          item.textContent = array[i][`${arg}`];
+          item.innerHTML = array[i][`${arg}`];
           item.style.opacity = '1';
         }, 400);
       }
