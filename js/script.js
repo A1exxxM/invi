@@ -498,7 +498,7 @@ function modal() {
         modalClose = document.querySelector('.modal__close');
 
   function setInfo(array, i, arg, selector) {
-    selector.textContent = array[i][`${arg}`];
+    selector.innerHTML = array[i][`${arg}`];
   }
 
   function setSrc(selector, arg, array, numberOfElement) {
